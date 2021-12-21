@@ -1,0 +1,28 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: var(--space-md);
+  width: calc(100% - (var(--space-xl) * 2));
+  padding: var(--space-lg) var(--space-md);
+  max-width: var(--max-page-width);
+  margin: auto;
+
+
+  &__branding {
+    grid-row: 1 / span 2;
+  }
+
+  &__top {
+    @include flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    > *:first-child { margin-right: auto; }
+  }
+
+  .custom-logo-link {
+    width: 100vw;
+    max-width: 280px;
+    height: auto;
+  }
+}

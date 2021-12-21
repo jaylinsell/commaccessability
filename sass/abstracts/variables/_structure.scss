@@ -1,2 +1,24 @@
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
+
+:root {
+  --max-page-width: 1260px;
+  // spacing values
+  --space-unit: 1em;
+  --space-xxxs: calc(0.25 * var(--space-unit));
+  --space-xxs: calc(0.375 * var(--space-unit));
+  --space-xs: calc(0.5 * var(--space-unit));
+  --space-sm: calc(0.75 * var(--space-unit));
+  --space-md: calc(1.25 * var(--space-unit));
+  --space-lg: calc(2 * var(--space-unit));
+  --space-xl: calc(3.25 * var(--space-unit));
+  --space-xxl: calc(5.25 * var(--space-unit));
+  --space-xxxl: calc(8.5 * var(--space-unit));
+
+  // components padding
+  --component-padding: var(--space-sm);
+
+  // Used on Agent accordions
+  --col-sm: 15vw;
+  --col-sm-min: 150px;
+}
