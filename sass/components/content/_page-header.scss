@@ -1,0 +1,18 @@
+.page__header {
+  background: var(--color-primary);
+  color: white;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1fr;
+
+  *:is(h1, h2, h3, h4, h5, h6) { color: var(--color-accent); }
+
+  article {
+    padding: var(--space-xxl) 0 var(--space-xxl) clamp(var(--space-xl), var(--max-page-width), calc(100% - var(--max-page-width) / 2));
+    p, span { font-size: var(--text-lg); }
+  }
+
+  .btn {
+    --btn-bg: var(--color-white);
+    --btn-label: var(--color-primary);
+  }
+}

@@ -1,3 +1,22 @@
 body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 }
+
+.section {
+	&--grey {
+		padding: var(--space-xl) 0;
+		background: var(--color-bg);
+	}
+
+	&--center {
+		> * {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+[class^=section] {
+	@include flex;
+	padding: var(--space-xl) 0;
+}

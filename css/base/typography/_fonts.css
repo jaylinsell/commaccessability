@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Branding';
+  src: url("fonts/BrandingSF-Medium.woff2") format("woff2"), url("fonts/BrandingSF-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: 'Branding';
+  src: url("fonts/BrandingSF-SemiBold.woff2") format("woff2"), url("fonts/BrandingSF-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap; }

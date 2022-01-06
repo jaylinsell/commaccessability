@@ -185,10 +185,18 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --color-bg-dark-h: 180;
   --color-bg-dark-s: 3%;
   --color-bg-dark-l: 94%;
-  --color-bg: hsl(179, 0%, 96%);
-  --color-bg-h: 179;
+  --color-bg: hsl(0, 0%, 100%);
+  --color-bg-h: 0;
   --color-bg-s: 0%;
-  --color-bg-l: 96%;
+  --color-bg-l: 100%;
+  --color-bg-light: hsl(180, 3%, 100%);
+  --color-bg-light-h: 180;
+  --color-bg-light-s: 3%;
+  --color-bg-light-l: 100%;
+  --color-bg-lighter: hsl(210, 4%, 100%);
+  --color-bg-lighter-h: 210;
+  --color-bg-lighter-s: 4%;
+  --color-bg-lighter-l: 100%;
   --color-contrast-lower: hsl(180, 1%, 84%);
   --color-contrast-lower-h: 180;
   --color-contrast-lower-s: 1%;
@@ -208,10 +216,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --color-contrast-higher: hsl(204, 28%, 7%);
   --color-contrast-higher-h: 204;
   --color-contrast-higher-s: 28%;
-  --color-contrast-higher-l: 7%;
-  --color-text-heading: var(--color-secondary);
-  --color-text: #425563;
-  --color-text-feature: #2b2e31; }
+  --color-contrast-higher-l: 7%; }
 
 @supports (--css: variables) {
   [data-theme="dark"] {
@@ -417,7 +422,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   border-color: hsla(var(str-replace(str-replace(var(--color-secondary-lighter), "var("), ")")-h), var(str-replace(str-replace(var(--color-secondary-lighter), "var("), ")")-s), var(str-replace(str-replace(var(--color-secondary-lighter), "var("), ")")-l), var(--bg-o, 1)); }
 
 :root {
-  --page-width: calc(100% - (var(--space-xl) * 2));
   --max-page-width: 1260px;
   --space-unit: 1em;
   --space-xxxs: calc(0.25 * var(--space-unit));
@@ -434,7 +438,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --col-sm-min: 150px; }
 
 :root {
-  --radius: 0.75rem;
+  --radius: .25rem;
   --radius-sm: calc(var(--radius, 0.25em)/2);
   --radius-md: var(--radius, 0.25em);
   --radius-lg: calc(var(--radius, 0.25em)*2);
@@ -608,29 +612,15 @@ html {
 --------------------------------------------------------------*/
 /* Typography
 --------------------------------------------- */
-@font-face {
-  font-family: 'Branding';
-  src: url("fonts/BrandingSF-Medium.woff2") format("woff2"), url("fonts/BrandingSF-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap; }
-
-@font-face {
-  font-family: 'Branding';
-  src: url("fonts/BrandingSF-SemiBold.woff2") format("woff2"), url("fonts/BrandingSF-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap; }
-
 :root {
-  --font-primary: 'Branding', helvetica, arial, sans-serif;
+  --font-primary: 'MarkPro', helvetica, arial, sans-serif;
   --font-secondary: var(--font-primary);
   --font-light: 300;
-  --font-regular: 500;
-  --font-medium: 600;
+  --font-regular: normal;
+  --font-medium: 500;
   --font-bold: bold;
   --text-base-size: 1.125em;
-  --text-scale-ratio: 1.2;
+  --text-scale-ratio: 1.3;
   --text-xs: calc((1em / var(--text-scale-ratio)) / var(--text-scale-ratio));
   --text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
   --text-md: calc(var(--text-sm) * var(--text-scale-ratio) * 1.2);
@@ -668,15 +658,21 @@ h1, h2, h3, h4, form legend {
   color: var(--color-text-heading);
   margin-bottom: var(--space-xxs);
   line-height: var(--heading-line-height);
-  font-weight: var(--font-medium); }
+  font-weight: var(--font-bold);
+  text-transform: uppercase; }
 
 .text--xxxxl {
   font-size: var(--text-xxxxl); }
 
-h1, .text--xxxl {
+h1, .text--xxxxl {
+  font-size: var(--text-xxxxxl); }
+  h1.title--long, .text--xxxxl.title--long {
+    font-size: var(--text-xxxxl); }
+
+h2, .text--xxxl {
   font-size: var(--text-xxxl); }
 
-h2, .text--xxl {
+.text--xxl {
   font-size: var(--text-xxl); }
 
 h3, .text--xl {
@@ -688,7 +684,7 @@ h4, .text--lg {
 h5, .text--md {
   font-size: var(--text-md); }
 
-h6, .text--sm, small {
+.text--sm, small {
   font-size: var(--text-sm); }
 
 .text--xs {
@@ -740,7 +736,7 @@ ul, ol {
 
 .text-container p, .content p {
   margin-bottom: var(--space-md);
-  max-width: 60ch; }
+  max-width: 75ch; }
 
 .text-container ul, .content ul {
   list-style: disc; }
@@ -751,31 +747,24 @@ ul, ol {
 .text-container li > ul, .text-container ol, .content li > ul, .content ol {
   margin-left: var(--space-md); }
 
-.text-container--feature, .content--feature {
-  color: var(--color-text-feature);
-  width: var(--page-width);
-  font-size: var(--text-lg);
-  line-height: 1.4;
-  max-width: 47ch;
-  margin: auto;
-  text-align: center; }
-
-.text-container--center, .content--center {
-  text-align: center; }
-  .text-container--center > *, .content--center > * {
-    margin-left: auto;
-    margin-right: auto; }
-
-.content li {
+.content li,
+.wba-q__question li,
+.answer__question li {
   margin: var(--space-xs) 0; }
-  .content li::marker {
+  .content li::marker,
+  .wba-q__question li::marker,
+  .answer__question li::marker {
     font-weight: var(--font-medium);
     color: var(--color-primary); }
 
-.content em {
+.content em,
+.wba-q__question em,
+.answer__question em {
   font-style: italic; }
 
-.content u {
+.content u,
+.wba-q__question u,
+.answer__question u {
   text-decoration: underline; }
 
 .truncate {
@@ -893,30 +882,14 @@ blockquote {
 body {
   background: #fff; }
 
-.section--grey {
-  padding: var(--space-xl) 0;
-  background: var(--color-bg); }
-
-.section--center > * {
-  margin-left: auto;
-  margin-right: auto; }
-
-[class^=section] {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding: var(--space-xl) 0; }
-
 .header {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto 1fr;
   grid-template-columns: auto 1fr;
   grid-gap: var(--space-md);
-  width: var(--page-width);
-  padding: var(--space-lg) 0;
+  width: calc(100% - (var(--space-xl) * 2));
+  padding: var(--space-lg) var(--space-md);
   max-width: var(--max-page-width);
   margin: auto; }
   .header__branding {
@@ -1205,73 +1178,6 @@ textarea {
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
-/* Misc
---------------------------------------------- */
-.card {
-  background: var(--color-bg);
-  border-radius: var(--radius);
-  overflow: hidden; }
-  .card__wrapper {
-    display: -ms-grid;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    margin: var(--space-sm) auto var(--space-lg);
-    width: var(--page-width);
-    max-width: var(--max-page-width);
-    grid-gap: var(--space-md); }
-  .card--link > a {
-    height: 100%; }
-  .card--link > a,
-  .card--link .card__content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1; }
-  .card--link .card__content {
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between; }
-  .card__header {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: minmax(0, 1fr) auto;
-    grid-template-columns: minmax(0, 1fr) auto;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    color: var(--color-primary); }
-    .card__header .chevron {
-      font-size: var(--text-xl);
-      margin-bottom: var(--space-xs); }
-  .card h3 {
-    color: currentColor;
-    font-size: var(--text-lg);
-    max-width: calc(100% - 2em); }
-  .card p {
-    color: var(--color-text); }
-  .card__thumb {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: rgba(0, 0, 0, 0.1);
-    margin: 0;
-    overflow: hidden; }
-    .card__thumb img {
-      -o-object-fit: cover;
-      object-fit: cover;
-      -o-object-position: top;
-      object-position: top;
-      width: 100%;
-      height: 100%; }
-  .card__content {
-    padding: var(--space-md); }
-
 /* Navigation
 --------------------------------------------- */
 :root {
@@ -1299,23 +1205,6 @@ textarea {
 
 /* Posts and pages
 --------------------------------------------- */
-.page__header {
-  background: var(--color-primary);
-  color: white;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: minmax(0, 1fr) 1fr;
-  grid-template-columns: minmax(0, 1fr) 1fr; }
-  .page__header *:is(h1, h2, h3, h4, h5, h6) {
-    color: var(--color-accent); }
-  .page__header article {
-    padding: var(--space-xxl) 0 var(--space-xxl) clamp(var(--space-xl), var(--max-page-width), calc(100% - var(--max-page-width) / 2)); }
-    .page__header article p, .page__header article span {
-      font-size: var(--text-lg); }
-  .page__header .btn {
-    --btn-bg: var(--color-white);
-    --btn-label: var(--color-primary); }
-
 .sticky {
   display: block; }
 
@@ -1506,8 +1395,3 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5em; }
-
-.center {
-  text-align: center; }
-
-/*# sourceMappingURL=style.css.map */

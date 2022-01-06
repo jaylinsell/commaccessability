@@ -1,0 +1,74 @@
+.card {
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  $cont: #{&}__content;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    margin: var(--space-sm) auto var(--space-lg);
+    width: var(--page-width);
+    max-width: var(--max-page-width);
+    grid-gap: var(--space-md);
+  }
+
+  // variations
+  &--link {
+    > a { height: 100%; }
+
+    > a,
+    #{$cont} {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    #{$cont} { justify-content: space-between; }
+  }
+
+  // content
+  &__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    color: var(--color-primary);
+
+    .chevron {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-xs);
+    }
+  }
+
+  h3 {
+    color: currentColor;
+    font-size: var(--text-lg);
+    max-width: calc(100% - 2em);
+  }
+
+  p {
+    color: var(--color-text);
+  }
+
+  &__thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: rgba(0,0,0,0.1);
+    margin: 0;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      object-position: top;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    padding: var(--space-md);
+  }
+
+}

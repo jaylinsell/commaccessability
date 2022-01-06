@@ -2,6 +2,7 @@ $size__site-main: 100%;
 $size__site-sidebar: 25%;
 
 :root {
+	--page-width: calc(100% - (var(--space-xl) * 2));
   --max-page-width: 1260px;
   // spacing values
   --space-unit: 1em;

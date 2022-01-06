@@ -1,0 +1,3 @@
+.page__header {
+  border: 10px solid red;
+  background: var(--color-primary); }

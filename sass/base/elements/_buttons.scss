@@ -45,6 +45,11 @@ input[type="submit"] {
   }
 }
 
+// section,
+// article {
+//   + .btn { margin-top: var(--space-lg); }
+// }
+
 .btn {
   color: var(--btn-label);
   padding: var(--btn-padding);
@@ -57,6 +62,7 @@ input[type="submit"] {
   text-align: center;
   justify-content: center;
   min-width: min-content;
+
 
 	&__group {
     @include flex;

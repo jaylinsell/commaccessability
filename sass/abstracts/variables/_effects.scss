@@ -1,7 +1,7 @@
 :root{
 
     // radius
-    --radius: .25rem;
+    --radius: 0.75rem;
     --radius-sm: calc(var(--radius, 0.25em)/2);
     --radius-md: var(--radius, 0.25em);
     --radius-lg: calc(var(--radius, 0.25em)*2);

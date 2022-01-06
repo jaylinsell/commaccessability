@@ -7,6 +7,13 @@
  * @package commaccessability
  */
 
+ // Require the enque script for wpack bundler
+require_once __DIR__ . '/inc/ca-enque.php';
+
+// Instantiate wpack bundler
+$enqueue = new caEnque('appName', 'outputPath', '1.0.0', 'theme', __FILE__);
+
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
