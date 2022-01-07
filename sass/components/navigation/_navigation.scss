@@ -8,6 +8,9 @@
 }
 
 .nav {
+	display: flex;
+	align-items: flex-end;
+
 	&__toggle {
 		@include breakpoint(md) { display: none; }
 	}
@@ -16,11 +19,23 @@
 		@include flex;
 		gap: var(--nav-spacing);
 
-		a {
+		a, a:visited {
 			color: var(	--nav-color);
 			font-weight: var(--font-medium);
 
-			&:hover { --nav-color: var(--color-secondary); }
+			&:hover { --nav-color: var(--color-hover); }
+		}
+
+		> .current-menu-item,
+		> .current-menu-parent {
+			a { color: var(--nav-color); }
+			&::after {
+				@include pseudo;
+				height: 3px;
+				background: var(--nav-color);
+				width: 100%;
+				top: 1.75em;
+			}
 		}
 	}
 
@@ -37,6 +52,7 @@
 	min-width: 176px;
 	width: auto;
 	animation: fadein 0.15s var(--ease-out);
+	z-index: 500;
 
 	&::before,
 	&::after {

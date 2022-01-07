@@ -7,7 +7,7 @@
   "main.css": "app/main.css",
   "main.css.map": "app/main.css.map",
   "main.js": "app/main.js",
-  "main.js.map": "main.27b748b5feeb4413d51a.hot-update.js.map",
+  "main.js.map": "main.64158ec47164ae6596dc.hot-update.js.map",
   "runtime.js": "app/runtime.js",
   "runtime.js.map": "app/runtime.js.map",
   "vendors~main.js": "app/vendors~main.js",
@@ -24,7 +24,7 @@
           "app/runtime.js.map",
           "app/vendors~main.js.map",
           "app/main.js.map",
-          "main.27b748b5feeb4413d51a.hot-update.js.map"
+          "main.64158ec47164ae6596dc.hot-update.js.map"
         ],
         "css": [
           "app/main.css"
