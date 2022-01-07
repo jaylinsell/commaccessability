@@ -14,3 +14,9 @@
 	width: $width;
 	height: $height
 }
+
+@mixin max-width {
+	width: var(--page-width);
+	max-width: var(--max-page-width);
+	margin: auto;
+}

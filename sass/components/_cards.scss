@@ -1,7 +1,16 @@
+:root {
+  --card-thumb-width: 100%;
+  --card-thumb-ratio: 16/9;
+  --card-padding: var(--space-md);
+  --card-title-color: var(--color-primary);
+  --card-title-size: var(--text-lg);
+  --card-font-size: 1em;
+}
+
 .card {
-  background: var(--color-bg);
   border-radius: var(--radius);
   overflow: hidden;
+  font-size: var(--card-font-size);
 
   $cont: #{&}__content;
 
@@ -28,12 +37,18 @@
     #{$cont} { justify-content: space-between; }
   }
 
+  &__content {
+    padding: var(--card-padding);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+  }
+
   // content
   &__header {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    color: var(--color-primary);
+    color: var(--card-title-color);
 
     .chevron {
       font-size: var(--text-xl);
@@ -43,7 +58,7 @@
 
   h3 {
     color: currentColor;
-    font-size: var(--text-lg);
+    font-size: var(--card-title-size);
     max-width: calc(100% - 2em);
   }
 
@@ -53,8 +68,8 @@
 
   &__thumb {
     display: block;
-    width: 100%;
-    aspect-ratio: 16/9;
+    width: var(--card-thumb-width);
+    aspect-ratio: var(--card-thumb-ratio);
     background: rgba(0,0,0,0.1);
     margin: 0;
     overflow: hidden;
@@ -67,8 +82,37 @@
     }
   }
 
-  &__content {
-    padding: var(--space-md);
-  }
+  &--feature {
+    --card-padding: var(--space-xl) var(--space-lg);
+    --card-title-color: var(--color-text-heading);
+    --card-title-size: var(--text-xl);
+    --card-font-size: 1.15em;
 
+    --figure-column: 1;
+    --figure-radius: var(--radius-lg) 0 var(--radius-lg) var(--radius-lg);
+    --cont-radius: 0 var(--radius) var(--radius) 0;
+    --card-thumb-ratio: 4/3;
+
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 1fr);
+    grid-template-rows: 3fr var(--radius-lg);
+    width: 100%;
+    margin-bottom: var(--space-xxl);
+
+    &:nth-child(even) {
+      --figure-order: 2;
+      --figure-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg);
+      --cont-radius: var(--radius) 0 0 var(--radius);
+    }
+
+    figure {
+      grid-row: 1 / span 2;
+      grid-column: var(--figure-order);
+      border-radius: var(--figure-radius);
+    }
+
+    #{$cont} { border-radius: var(--cont-radius); }
+
+    .btn { margin-top: var(--space-sm); }
+  }
 }

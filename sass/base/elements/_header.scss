@@ -1,11 +1,9 @@
 .header {
+  @include max-width;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: var(--space-md);
-  width: var(--page-width);
   padding: var(--space-lg) 0;
-  max-width: var(--max-page-width);
-  margin: auto;
 
 
   &__branding {

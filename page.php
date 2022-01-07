@@ -42,7 +42,7 @@ get_header();
 			<p>We provide transport services, community activities and home-based care in regional Victoria.</p>
 		</article>
 
-		<section class="grid card__wrapper">
+		<section class="card__wrapper">
 			<article class="card card--link">
 				<a href="#">
 					<figure class="card__thumb"><img src="https://picsum.photos/400/301" alt=""></figure>
@@ -103,37 +103,47 @@ get_header();
 	<section class="section">
 		<article class="card card--feature">
 			<figure class="card__thumb"><img src="https://picsum.photos/600/604" alt=""></figure>
-			<header class="card__header">
-				<h3>Card Title</h3>
-			</header>
+			<section class="card__content">
+				<header class="card__header">
+					<h3>Card Title</h3>
+				</header>
 
-			<p class="card__excerpt">
-				Egestas pulvinar libero, sit amet interdum quam imperdiet vel. Et aenean.
-			</p>
+				<p class="card__excerpt">
+					Egestas pulvinar libero, sit amet interdum quam imperdiet vel. Et aenean.
+				</p>
 
-			<a href="#" class="btn btn--primary">c2a</a>
+				<a href="#" class="btn btn--primary">c2a</a>
+			</section>
 		</article>
 
 		<article class="card card--feature">
-			<figure class="card__thumb"><img src="https://picsum.photos/600/603" alt=""></figure>
-			<header class="card__header">
-				<h3>Card Title</h3>
-			</header>
+			<figure class="card__thumb"><img src="https://picsum.photos/600/605" alt=""></figure>
+			<section class="card__content">
+				<header class="card__header">
+					<h3>Card Title</h3>
+				</header>
 
-			<p class="card__excerpt">
-				Egestas pulvinar libero, sit amet interdum quam imperdiet vel. Et aenean.
-			</p>
+				<p class="card__excerpt">
+					Egestas pulvinar libero, sit amet interdum quam imperdiet vel. Et aenean.
+				</p>
 
-			<a href="#" class="btn btn--primary">c2a</a>
+				<a href="#" class="btn btn--primary">c2a</a>
+			</section>
 		</article>
 	</section>
 
-	<section class="section--grey grid grid--2">
-		<article class="content">
-			<h2>See the impact a little support can make</h2>
-			<p>Fusce magna massa, ornare in consectetur in, rutrum non mauris.</p>
-			<p>Praesent nunc mi, dapibus sed turpis et, fementum.</p>
-		</article>
+	<section class="section--grey">
+		<div class="section grid grid--2 grid--center">
+			<article class="content">
+				<h2>See the impact a little support can make</h2>
+				<p>Fusce magna massa, ornare in consectetur in, rutrum non mauris.</p>
+				<p>Praesent nunc mi, dapibus sed turpis et, fementum.</p>
+			</article>
+
+			<figure>
+				<img src="https://picsum.photos/600/406" alt="">
+			</figure>
+		</div>
 	</section>
 
 		<?php
@@ -153,5 +163,5 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();

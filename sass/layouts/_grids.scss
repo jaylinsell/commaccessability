@@ -1,0 +1,16 @@
+:root {
+  --col-count: 1;
+  --col-gap: var(--space-md);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--col-count), minmax(0, 1fr));
+  grid-column-gap: var(--col-gap);
+
+  &--center { align-items: center; }
+  &--2 {
+    --col-count: 2;
+    --col-gap: var(--space-lg);
+  }
+}
