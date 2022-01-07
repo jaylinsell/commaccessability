@@ -11,7 +11,6 @@
 .card {
   border-radius: var(--radius);
   overflow: hidden;
-  font-size: var(--card-font-size);
 
   $cont: #{&}__content;
 
@@ -42,6 +41,8 @@
     padding: var(--card-padding);
     border-radius: var(--card-cont-radius);
     background: var(--color-bg);
+
+    *:is(span, p) { font-size: var(--card-font-size); }
   }
 
   // content
@@ -96,7 +97,7 @@
 
     display: grid;
     grid-template-columns: 1fr minmax(0, 1fr);
-    grid-template-rows: 3fr var(--radius-lg);
+    // grid-template-rows: 3fr var(--radius-lg);
     width: 100%;
     margin-bottom: var(--space-xxl);
 
@@ -108,7 +109,7 @@
 
     figure {
       grid-row: 1 / span 2;
-      grid-column: var(--figure-order);
+      grid-column: var(--figure-order, 1);
       border-radius: var(--figure-radius);
     }
 

@@ -14,5 +14,10 @@
   .btn {
     --btn-bg: var(--color-white);
     --btn-label: var(--color-primary);
+
+    &:hover {
+      --btn-bg: var(--color-hover);
+      --btn-label: var(--color-white);
+    }
   }
 }

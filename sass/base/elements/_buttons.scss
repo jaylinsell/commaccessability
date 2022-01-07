@@ -1,7 +1,7 @@
 :root {
 	--btn-bg: var(--color-primary);
 	--btn-label: var(--color-white);
-	--btn-padding: var(--space-xs) var(--space-md);
+	--btn-padding: var(--space-sm) var(--space-md);
 	--btn-radius: 5em;
 	--btn-font-size: 1em;
 	--btn-font-weight: var(--font-medium);
@@ -84,7 +84,7 @@ input[type="submit"] {
     --btn-bg: var(--color-primary);
     width: clamp(100px, 100%, 160px);
 
-    &:hover { --btn-bg: var(--color-secondary); }
+    &:hover { --btn-bg: var(--color-hover); }
     &:focus {
       --btn-border-color: var(--color-primary-darker);
       --btn-shadow: 0 0 5px 0 var(--color-primary-lighter);
@@ -97,8 +97,8 @@ input[type="submit"] {
     --btn-label: var(--color-primary);
 
     &:hover {
-      --btn-bg: var(--color-primary-light);
-      --btn-label: var(--white);
+      --btn-bg: var(--color-hover);
+      --btn-label: var(--color-white);
     }
   }
 
@@ -113,9 +113,8 @@ input[type="submit"] {
   &--sm,
   &--small {
     --btn-padding: var(--space-xs) var(--space-sm);
-    --btn-font-size: calc(var(--btn-font-size) - 0.2em);
-
-    font-weight: 500;
+    // --btn-font-size: calc(var(--btn-font-size) - 0.2em);
+    // font-weight: 500;
     letter-spacing: 0.3px;
     width: clamp(80px, 100%, 120px);
   }

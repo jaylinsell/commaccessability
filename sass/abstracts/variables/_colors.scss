@@ -75,10 +75,17 @@ $color__border-abbr: #666;
   @include defineColorHSL(--color-contrast-high, 210, 7%, 21%);
   @include defineColorHSL(--color-contrast-higher, 204, 28%, 7%);
 
+  // slates
+  @include defineColorHSL(--color-slate, 205, 20%, 32%);
+  @include defineColorHSL(--color-slate-darker, 210, 7%, 18%);
+
   // typography
   --color-text-heading: var(--color-secondary);
-  --color-text: #425563;
+  --color-text: var(--color-slate);
   --color-text-feature: #2b2e31;
+
+  // interaction
+  --color-hover: var(--color-slate);
 }
 
 @supports(--css: variables) {

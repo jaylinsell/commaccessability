@@ -89,13 +89,13 @@ p {
 // + p { margin-top: var(--space-sm); }
 }
 
-a {
+a:not(.btn) {
 	color: var(--color-link);
 	transition: .2s var(--ease-out);
 	text-decoration: none;
 
 	&:visited { color: var(--color-link-visited); }
-	&:hover{ color: var(--color-link-hover); }
+	&:hover{ color: var(--color-hover); }
 }
 
 b, strong { font-weight: bold; }
@@ -122,12 +122,11 @@ ul, ol { list-style: none; }
 	li > ul, ol { margin-left: var(--space-md); }
 
 	&--feature {
+		@include max-width;
 		color: var(--color-text-feature);
-		width: var(--page-width);
 		font-size: var(--text-lg);
 		line-height: 1.4;
-		max-width: 47ch;
-		margin: auto;
+		// max-width: 47ch;
 		text-align: center;
 	}
 
