@@ -97,7 +97,9 @@ get_header();
 			</article>
 		</section>
 
-		<a href="#" class="btn btn--primary">See more services</a>
+		<footer class="section__actions">
+			<a href="#" class="btn btn--primary">See more services</a>
+		</footer>
 	</section>
 
 	<section class="section">

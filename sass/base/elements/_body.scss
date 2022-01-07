@@ -20,10 +20,14 @@ html, body {
 			margin-left: auto;
 			margin-right: auto;
 		}
+
+		.section__actions {
+			@include flex;
+			justify-content: center;
+		}
 	}
 }
 
 .site-main > [class^=section] {
-	@include flex;
 	padding: var(--space-xl) 0;
 }

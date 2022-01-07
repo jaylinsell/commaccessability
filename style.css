@@ -907,13 +907,17 @@ html, body {
   .section--center > * {
     margin-left: auto;
     margin-right: auto; }
+  .section--center .section__actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
 
 .site-main > [class^=section] {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   padding: var(--space-xl) 0; }
 
 .header {
@@ -1303,7 +1307,8 @@ textarea {
   --card-padding: var(--space-md);
   --card-title-color: var(--color-primary);
   --card-title-size: var(--text-lg);
-  --card-font-size: 1em; }
+  --card-font-size: 1em;
+  --card-cont-radius: 0 0 var(--radius) var(--radius); }
 
 .card {
   border-radius: var(--radius);
@@ -1337,7 +1342,7 @@ textarea {
     justify-content: space-between; }
   .card__content {
     padding: var(--card-padding);
-    border-radius: var(--radius);
+    border-radius: var(--card-cont-radius);
     background: var(--color-bg); }
   .card__header {
     display: -ms-grid;
@@ -1378,8 +1383,8 @@ textarea {
     --card-font-size: 1.15em;
     --figure-column: 1;
     --figure-radius: var(--radius-lg) 0 var(--radius-lg) var(--radius-lg);
-    --cont-radius: 0 var(--radius) var(--radius) 0;
     --card-thumb-ratio: 4/3;
+    --card-cont-radius: 0 var(--radius) var(--radius) 0;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr minmax(0, 1fr);
@@ -1391,15 +1396,13 @@ textarea {
     .card--feature:nth-child(even) {
       --figure-order: 2;
       --figure-radius: 0 var(--radius-lg) var(--radius-lg) var(--radius-lg);
-      --cont-radius: var(--radius) 0 0 var(--radius); }
+      --card-cont-radius: var(--radius) 0 0 var(--radius); }
     .card--feature figure {
       -ms-grid-row: 1;
       -ms-grid-row-span: 2;
       grid-row: 1 / span 2;
       grid-column: var(--figure-order);
       border-radius: var(--figure-radius); }
-    .card--feature .card__content {
-      border-radius: var(--cont-radius); }
     .card--feature .btn {
       margin-top: var(--space-sm); }
 
