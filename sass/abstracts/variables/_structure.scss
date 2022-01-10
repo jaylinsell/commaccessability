@@ -22,4 +22,12 @@ $size__site-sidebar: 25%;
   // Used on Agent accordions
   --col-sm: 15vw;
   --col-sm-min: 150px;
+
+  @include breakpoint(tablg, 'not all') {
+    --page-width: calc(100% - (var(--space-lg) * 2));
+  }
+
+  @include breakpoint(xs, 'not all') {
+    --page-width: calc(100% - (var(--space-md) * 2));
+  }
 }

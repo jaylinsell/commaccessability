@@ -1,14 +1,37 @@
+:root {
+  --p-h-columns: minmax(0, 1fr) 1fr;
+  --p-h-mask: url(svgs/desktop-mask.svg);
+  --p-h-padding: var(--space-xxl) 0 var(--space-xxl) clamp(var(--space-xl), var(--max-page-width), calc(100% - var(--max-page-width) / 2));
+
+  @include breakpoint(md, 'not all') {
+    --p-h-columns: 1fr;
+    --p-h-mask: url(svgs/mob-mask.svg);
+    --p-h-padding: var(--space-lg);
+  }
+}
+
 .page__header {
   background: var(--color-primary);
   color: white;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 1fr;
+  grid-template-columns: var(--p-h-columns);
+
+  @include breakpoint(md, 'not all') {
+    grid-template-rows: auto var(--space-xl) auto;
+  }
 
   *:is(h1, h2, h3, h4, h5, h6) { color: var(--color-accent); }
 
   article {
-    padding: var(--space-xxl) 0 var(--space-xxl) clamp(var(--space-xl), var(--max-page-width), calc(100% - var(--max-page-width) / 2));
+    padding: var(--p-h-padding);
+    position: relative;
+    z-index: 1;
     p, span { font-size: var(--text-lg); }
+
+    @include breakpoint (md, 'not all') {
+      grid-row: 1 / span 2;
+      grid-column: 1;
+    }
   }
 
   .btn {
@@ -18,6 +41,26 @@
     &:hover {
       --btn-bg: var(--color-hover);
       --btn-label: var(--color-white);
+    }
+  }
+
+  figure {
+    margin: 0;
+    mask-image: var(--p-h-mask);
+    mask-size: cover;
+
+    @include breakpoint(md, 'not all') {
+      margin: auto auto -3px;
+      grid-column: 1;
+      grid-row: 2 / span 2;
+      aspect-ratio: 180 / 89;
+      width: 100%;
+    }
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
     }
   }
 }

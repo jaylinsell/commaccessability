@@ -1,13 +1,6 @@
 {
-  "app/assets/BrandingSF-Medium.woff": "app/assets/BrandingSF-Medium-6e79485b.woff",
-  "app/assets/BrandingSF-Medium.woff2": "app/assets/BrandingSF-Medium-2d5aec2a.woff2",
-  "app/assets/BrandingSF-SemiBold.woff": "app/assets/BrandingSF-SemiBold-52459b3d.woff",
-  "app/assets/BrandingSF-SemiBold.woff2": "app/assets/BrandingSF-SemiBold-6d033331.woff2",
-  "app/main.js.map": "app/main.js.map",
-  "main.css": "app/main.css",
-  "main.css.map": "app/main.css.map",
   "main.js": "app/main.js",
-  "main.js.map": "main.64158ec47164ae6596dc.hot-update.js.map",
+  "main.js.map": "app/main.js.map",
   "runtime.js": "app/runtime.js",
   "runtime.js.map": "app/runtime.js.map",
   "vendors~main.js": "app/vendors~main.js",
@@ -23,14 +16,7 @@
         "js.map": [
           "app/runtime.js.map",
           "app/vendors~main.js.map",
-          "app/main.js.map",
-          "main.64158ec47164ae6596dc.hot-update.js.map"
-        ],
-        "css": [
-          "app/main.css"
-        ],
-        "css.map": [
-          "app/main.css.map"
+          "app/main.js.map"
         ]
       }
     }

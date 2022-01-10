@@ -24,11 +24,9 @@ get_header();
 			<a href="#" class="btn btn--invert">Call to action</a>
 		</article>
 
-		<figure class="pattern pattern--full">
-			<!-- // TODO add masking to image -->
-			<img src="<?php echo get_template_directory_uri(); ?>/img/image.png" alt="">
-			<!-- // TODO make SVG -->
-			<img src="<?php echo get_template_directory_uri(); ?>/img/pattern-1.png" alt="">
+		<figure>
+			<!-- // TODO - MAKE CHANGEABLE -->
+			<img src="<?php echo get_template_directory_uri(); ?>/images/Disability_Transport.jpg" alt="">
 		</figure>
 	</section>
 
@@ -49,7 +47,6 @@ get_header();
 					<section class="card__content">
 						<header class="card__header">
 							<h3>Card Title</h3>
-							<div class="chevron">&rsaquo;</div>
 						</header>
 
 						<p class="card__excerpt">Egestas pulvinar libero, sit amet interdum quam imperdiet vel. Et aenean.</p>
@@ -62,7 +59,6 @@ get_header();
 					<section class="card__content">
 						<header class="card__header">
 							<h3>Disability Services</h3>
-							<div class="chevron">&rsaquo;</div>
 						</header>
 
 						<p class="card__excerpt">Egestas pulvinar libero, sit amet interdum quam imperdiet vel. Et aenean.</p>
@@ -75,7 +71,6 @@ get_header();
 					<section class="card__content">
 						<header class="card__header">
 							<h3>Card Title</h3>
-							<div class="chevron">&rsaquo;</div>
 						</header>
 
 						<p class="card__excerpt">Egestas pulvinar libero, sit amet interdum quam imperdiet vel. Et aenean.</p>
@@ -88,7 +83,6 @@ get_header();
 					<section class="card__content">
 						<header class="card__header">
 							<h3>Card Title</h3>
-							<div class="chevron">&rsaquo;</div>
 						</header>
 
 						<p class="card__excerpt">Egestas pulvinar libero, sit amet interdum quam imperdiet vel. Et aenean.</p>
