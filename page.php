@@ -166,7 +166,7 @@ get_header();
 
 					<?php if( get_row_layout() == 'general_content' ): ?>
 						<!-- // TODO Finish styling generic content and finish implementing -->
-						<?php the_sub_field('general_content'); ?>
+						<?php the_sub_field('generic'); ?>
 					<?php endif; ?>
 
 					<?php if( get_row_layout() == 'service_grid' ): ?>
@@ -175,6 +175,14 @@ get_header();
 
 					<?php if( get_row_layout() == 'feature_cards' ): ?>
 						<?php get_template_part('partials/feature-cards'); ?>
+					<?php endif; ?>
+
+					<?php if( get_row_layout() == '2_col_video_section' ): ?>
+						<?php get_template_part('partials/videos'); ?>
+					<?php endif; ?>
+
+					<?php if( get_row_layout() == 'additional_pages' ): ?>
+						<?php get_template_part('partials/related'); ?>
 					<?php endif; ?>
 
 				<?php endwhile; ?>
