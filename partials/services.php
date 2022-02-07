@@ -55,7 +55,7 @@
   </section>
 
   <?php
-    $c2a        = get_sub_field('call_to_action');
+    $c2a        = get_sub_field('service_call_to_action');
     $btnLabel   = get_sub_field('service_button_label');
     $page       = get_sub_field('service_page');
     $url        = get_sub_field('service_url');

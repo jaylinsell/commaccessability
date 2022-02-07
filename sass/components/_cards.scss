@@ -9,6 +9,8 @@
 }
 
 .card {
+  @include flex;
+  flex-direction: column;
   border-radius: var(--radius);
   overflow: hidden;
 
@@ -33,16 +35,33 @@
 
   // variations
   &--link {
-    > a { height: 100%; }
+    overflow: visible;
+
+    > a {
+      height: 100%;
+      box-shadow: 0 0 0 0 transparent;
+
+      &:hover {
+        box-shadow: var(--shadow-md);
+
+        #{$cont} {
+          background: var(--color-white);
+        }
+      }
+    }
 
     > a,
     #{$cont} {
       display: flex;
       flex-direction: column;
       flex: 1;
+      transition: 0.2s var(--ease-out);
+      border-radius: var(--card-cont-radius);
     }
 
-    #{$cont} { justify-content: space-between; }
+    #{$cont} {
+      justify-content: flex-start;
+    }
   }
 
   &__content {
