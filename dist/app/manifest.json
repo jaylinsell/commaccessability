@@ -1,7 +1,6 @@
 {
-  "app/main.js.map": "app/main.js.map",
   "main.js": "app/main.js",
-  "main.js.map": "main.cdebc7ba4c2aee85540d.hot-update.js.map",
+  "main.js.map": "app/main.js.map",
   "runtime.js": "app/runtime.js",
   "runtime.js.map": "app/runtime.js.map",
   "vendors~main.js": "app/vendors~main.js",
@@ -17,8 +16,7 @@
         "js.map": [
           "app/runtime.js.map",
           "app/vendors~main.js.map",
-          "app/main.js.map",
-          "main.cdebc7ba4c2aee85540d.hot-update.js.map"
+          "app/main.js.map"
         ]
       }
     }

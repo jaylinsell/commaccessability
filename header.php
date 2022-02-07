@@ -43,13 +43,13 @@
 		</div><!-- .site-branding -->
 
 		<section class="header__top">
-			<button class="btn btn--secondary btn--small" type="button" role="listbox">Accessability</button>
+			<button class="btn btn--secondary btn--small btn--accessability" type="button" role="listbox">Accessability</button>
 			<button class="btn btn--secondary btn--small btn--icon" type="button" aria-label="Search">S</button>
 			<button class="btn btn--primary btn--small" type="button">Book Transport</button>
 		</section>
 
 		<nav id="site-navigation" class="nav">
-			<button class="nav__toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'commaccessability' ); ?></button>
+			<button class="nav__toggle btn btn--secondary" aria-controls="primary-menu" aria-expanded="false">Menu</button>
 			<?php
 				wp_nav_menu(
 					array(

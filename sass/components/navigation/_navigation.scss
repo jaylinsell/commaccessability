@@ -7,16 +7,29 @@
 	}
 }
 
+.menu-main-menu-container {
+	@include breakpoint(md, 'not all') {
+		display: none;
+	}
+}
+
 .nav {
 	display: flex;
 	align-items: flex-end;
 
+	@include breakpoint(md, 'not all') {
+		margin-left: auto;
+		grid-row: 2;
+	}
+
 	&__toggle {
+
 		@include breakpoint(md) { display: none; }
 	}
 
 	&__list {
 		@include flex;
+		flex-wrap: nowrap;
 		gap: var(--nav-spacing);
 
 		a, a:visited {

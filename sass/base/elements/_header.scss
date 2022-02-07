@@ -1,10 +1,21 @@
+:root {
+  --header-padding: var(--space-lg) 0 var(--space-xl);
+
+  @include breakpoint(md, 'not all') {
+    --header-padding: var(--space-md) 0 var(--space-lg);
+  }
+
+  @include breakpoint(xs, 'not all') {
+    --header-padding: var(--space-sm) 0 var(--space-md);
+  }
+}
+
 .header {
   @include max-width;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: var(--space-md);
-  padding: var(--space-lg) 0 var(--space-xl);
-
+  padding: var(--header-padding);
 
   &__branding {
     grid-row: 1 / span 2;
@@ -16,11 +27,34 @@
     justify-content: flex-end;
 
     > *:first-child { margin-right: auto; }
+
+    .btn:not(.btn--primary) {
+      @include breakpoint(md, 'not all') { display: none; }
+    }
+
+    @include breakpoint(md, 'not all') {
+      grid-column: 3;
+      grid-row: 2;
+    }
+    @media only screen and (max-width: 600px) { display: none; }
   }
 
   .custom-logo-link {
-    width: 100vw;
-    max-width: 280px;
-    height: auto;
+    @include breakpoint(md) {
+      width: 100vw;
+      max-width: 280px;
+      height: auto;
+    }
+
+    @include breakpoint(md, 'not all') {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }
