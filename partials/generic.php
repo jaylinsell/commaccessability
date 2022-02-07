@@ -1,8 +1,8 @@
 <?php
   /** Template to display generic content */
 ?>
-<section class="section--full">
-  <article class="content">
+<section class="section">
+  <article class="content section--content">
     <?php the_sub_field('general_content'); ?>
 
     <?php

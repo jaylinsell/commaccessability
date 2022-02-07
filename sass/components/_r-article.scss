@@ -1,0 +1,31 @@
+:root {
+  --r-article-cols: minmax(0, 0.25fr) minmax(0, 1fr);
+
+  @include breakpoint(md, 'not all') {
+    --r-article-cols: minmax(0, 1fr);
+  }
+}
+
+.r-article {
+  display: grid;
+  grid-template-columns: var(--r-article-cols);
+  grid-gap: var(--space-md);
+
+  figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    max-width: 140px;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .btn {
+    margin-top: var(--space-sm);
+  }
+}

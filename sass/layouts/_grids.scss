@@ -1,16 +1,25 @@
 :root {
   --col-count: 1;
   --col-gap: var(--space-md);
+  --row-gap: 0;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(var(--col-count), minmax(0, 1fr));
   grid-column-gap: var(--col-gap);
+  grid-row-gap: var(--row-gap);
 
   &--center { align-items: center; }
   &--2 {
     --col-count: 2;
     --col-gap: var(--space-lg);
+  }
+
+  &--m-full {
+    @include breakpoint(sm, 'not all') {
+      --col-count: 1;
+      --row-gap: var(--space-xl);
+    }
   }
 }

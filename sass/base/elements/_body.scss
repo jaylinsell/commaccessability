@@ -26,6 +26,14 @@ html, body {
 			justify-content: center;
 		}
 	}
+
+	&--content {
+		@include breakpoint(md) {
+			max-width: calc(100% / 12 * 8);
+			width: 100%;
+			margin: auto;
+		}
+	}
 }
 
 .site-main > [class^=section] {

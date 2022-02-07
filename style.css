@@ -931,6 +931,11 @@ html, body {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center; }
+  @media (min-width: 64rem) {
+    .section--content {
+      max-width: calc(100% / 12 * 8);
+      width: 100%;
+      margin: auto; } }
 
 .site-main > [class^=section] {
   padding: var(--space-xl) 0; }
@@ -1282,14 +1287,16 @@ textarea {
 --------------------------------------------------------------*/
 :root {
   --col-count: 1;
-  --col-gap: var(--space-md); }
+  --col-gap: var(--space-md);
+  --row-gap: 0; }
 
 .grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(0, 1fr))[var(--col-count)];
   grid-template-columns: repeat(var(--col-count), minmax(0, 1fr));
-  grid-column-gap: var(--col-gap); }
+  grid-column-gap: var(--col-gap);
+  grid-row-gap: var(--row-gap); }
   .grid--center {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -1297,6 +1304,10 @@ textarea {
   .grid--2 {
     --col-count: 2;
     --col-gap: var(--space-lg); }
+  @media not all and (min-width: 48rem) {
+    .grid--m-full {
+      --col-count: 1;
+      --row-gap: var(--space-xl); } }
 
 /*--------------------------------------------------------------
 # Components
@@ -1460,11 +1471,55 @@ textarea {
     .card--feature .btn {
       margin-top: var(--space-sm); }
 
+@media not all and (min-width: 64rem) {
+  .section--video {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: var(--space-md);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center; } }
+
 .video {
-  aspect-ratio: 16/9; }
+  aspect-ratio: 16/9;
+  width: 100%;
+  margin: auto; }
   .video iframe {
     width: 100%;
     height: 100%; }
+  @media not all and (min-width: 64rem) {
+    .video {
+      max-width: calc(100% / 6 * 4); } }
+  @media not all and (min-width: 48rem) {
+    .video {
+      max-width: 100%; } }
+
+:root {
+  --r-article-cols: minmax(0, 0.25fr) minmax(0, 1fr); }
+  @media not all and (min-width: 64rem) {
+    :root {
+      --r-article-cols: minmax(0, 1fr); } }
+
+.r-article {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: var(--r-article-cols);
+  grid-template-columns: var(--r-article-cols);
+  grid-gap: var(--space-md); }
+  .r-article figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    max-width: 140px; }
+    .r-article figure img {
+      -o-object-fit: cover;
+      object-fit: cover;
+      height: 100%;
+      width: 100%; }
+  .r-article .btn {
+    margin-top: var(--space-sm); }
 
 /* Navigation
 --------------------------------------------- */

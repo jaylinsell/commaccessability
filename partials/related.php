@@ -2,7 +2,7 @@
   /** Template to display related pages */
 ?>
 <section class="section--grey">
-  <div class="section grid grid--2">
+  <div class="section grid grid--2 grid--m-full">
     <?php if( have_rows('cont_block') ): ?>
       <?php while( have_rows('cont_block') ): the_row(); ?>
         <?php
@@ -14,7 +14,7 @@
           $page = get_sub_field('page');
           $url = get_sub_field('url');
         ?>
-        <article class="content r-article">
+        <article class="r-article">
 
           <?php if( $thumb ): ?>
             <figure class="r-article__thumb">

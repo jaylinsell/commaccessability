@@ -2,7 +2,7 @@
   /** Template to dislpay two col video section */
 ?>
 <section class="section--grey">
-  <div class="section grid grid--2">
+  <div class="section section--video grid grid--2">
     <?php
       $title = get_sub_field('video_title');
       $content = get_sub_field('video_content');
