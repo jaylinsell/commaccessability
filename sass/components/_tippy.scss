@@ -1,0 +1,33 @@
+.tippy{
+  &-box {
+    background: var(--color-white);
+    color: var(--color-text);
+    border-radius: 3px 3px var(--radius) var(--radius);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    font-size: 1rem;
+
+    &::before,
+    &::after {
+      @include pseudo;
+      width: 100%;
+      left: 0;
+    }
+
+    &:before {
+      border-top-right-radius: var(--radius-sm);
+      border-top-left-radius: var(--radius-sm);
+      background: linear-gradient(to bottom, var(--color-slate) 4px, transparent 4px);
+      height: 50%;
+      min-height: 0.75em;
+      z-index: -1;
+      top: -4px;
+    }
+
+    &::after {
+      bottom: 100%;
+      height: var(--space-xs);
+    }
+  }
+}
+

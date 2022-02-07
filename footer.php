@@ -78,6 +78,27 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script>
+		// With the above scripts loaded, you can call `tippy()` with a CSS
+		// selector and a `content` prop:
+		tippy('#accessabillity', {
+			content: `
+				<ul>
+					<li>Toggle One <button>Toggle</button></li>
+					<li>Toggle Two <button>Toggle</button></li>
+				</ul>
+			`,
+			allowHTML: true,
+			interactive: true,
+			trigger: 'click',
+			theme: 'light',
+			placement: 'bottom',
+			arrow: false,
+		});
+</script>
 
 </body>
 </html>

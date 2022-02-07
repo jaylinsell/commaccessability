@@ -39,6 +39,27 @@
     @media only screen and (max-width: 600px) { display: none; }
   }
 
+  .search {
+    svg path {
+      fill: none;
+      transition: 0.2s var(--ease-out);
+    }
+
+    .btn--icon {
+      @include flexMiddle;
+      @include size(2.5rem);
+      background: var(--color-contrast-low);
+      margin-right: var(--space-sm);
+
+      &:hover {
+        background: var(--color-hover);
+
+        svg path { stroke: var(--color-white); }
+      }
+    }
+
+  }
+
   .custom-logo-link {
     @include breakpoint(md) {
       width: 100vw;
