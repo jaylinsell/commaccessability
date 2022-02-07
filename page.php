@@ -165,8 +165,7 @@ get_header();
 					<?php endif; ?>
 
 					<?php if( get_row_layout() == 'general_content' ): ?>
-						<!-- // TODO Finish styling generic content and finish implementing -->
-						<?php the_sub_field('generic'); ?>
+						<?php get_template_part('partials/generic'); ?>
 					<?php endif; ?>
 
 					<?php if( get_row_layout() == 'service_grid' ): ?>
