@@ -23,7 +23,7 @@
 			array(
 				// 'theme_location' => 'footer-menu-1',
 				'theme_location' => $location,
-				'items_wrap'		 => '<h3>'.esc_html($menu_obj->name).'</h3><ul id=\"%1$s\" class=\"%2$s\">%3$s</ul>',
+				'items_wrap'		 => '<h3>'.esc_html($menu_obj->name).'</h3><ul id="%1$s" class="%2$s">%3$s</ul>',
 				'menu_id'        => $location,
 				'menu_class'		 => 'footer__nav-list',
 			)
@@ -57,7 +57,7 @@
 						array(
 							'theme_location' => 'footer-menu-legals',
 							'menu_id'        => 'footer-menu-legals',
-							'menu_class'		 => 'footer__nav-list',
+							'menu_class'		 => 'footer__nav-legals',
 						)
 					);
 				?>

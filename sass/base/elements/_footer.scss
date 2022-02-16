@@ -10,7 +10,7 @@
   *:is(h1, h2, h3, h4, h5, h6) { color: var(--color-accent); }
 
   h3 {
-    font-size: var(--text-md);
+    font-size: 1.5rem;
   }
 
   a {
@@ -40,11 +40,19 @@
     grid-gap: var(--space-md);
   }
 
-  &__links {
-    font-size: 0.85rem;
+  &__nav-list {
+    li {
+      + li { margin-top: var(--space-sm); }
+    }
+  }
+
+  &__links ul{
+    font-size: 0.875rem;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-md);
+    gap: var(--space-xl);
+
+
   }
 
   .flags {
