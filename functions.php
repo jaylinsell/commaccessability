@@ -58,6 +58,11 @@ if ( ! function_exists( 'commaccessability_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'commaccessability' ),
+				'footer-menu-1' => esc_html__( 'Footer 1', 'commaccessability' ),
+				'footer-menu-2' => esc_html__( 'Footer 2', 'commaccessability' ),
+				'footer-menu-3' => esc_html__( 'Footer 3', 'commaccessability' ),
+				'footer-menu-4' => esc_html__( 'Footer 4', 'commaccessability' ),
+				'footer-menu-legals' => esc_html__( 'Footer Legals', 'commaccessability' ),
 			)
 		);
 
