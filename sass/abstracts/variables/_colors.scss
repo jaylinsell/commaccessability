@@ -57,7 +57,7 @@ $color__border-abbr: #666;
 
   @include defineColorHSL(--color-error-darker, 342, 89%, 38%);
   @include defineColorHSL(--color-error-dark, 342, 89%, 43%);
-  @include defineColorHSL(--color-error, 342, 89%, 48%);
+  @include defineColorHSL(--color-error, 322, 80%, 49%);
   @include defineColorHSL(--color-error-light, 342, 89%, 56%);
   @include defineColorHSL(--color-error-lighter, 342, 89%, 62%);
 
@@ -76,6 +76,8 @@ $color__border-abbr: #666;
   @include defineColorHSL(--color-contrast-higher, 204, 28%, 7%);
 
   // slates
+  @include defineColorHSL(--color-slate-lighter, 205, 20%, 80%);
+  @include defineColorHSL(--color-slate-light, 205, 20%, 60%);
   @include defineColorHSL(--color-slate, 205, 20%, 32%);
   @include defineColorHSL(--color-slate-darker, 210, 7%, 18%);
 

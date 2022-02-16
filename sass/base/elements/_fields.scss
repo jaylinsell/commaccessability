@@ -1,3 +1,9 @@
+:root {
+	--form-border-color: var(--color-slate-light);
+	--form-border-weight: 1px;
+	--err-border-height: 8px;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -15,13 +21,22 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
 	color: $color__text-input;
-	border: 1px solid $color__border-input;
+	border: var(--form-border-weight) solid var(--form-border-color);
 	border-radius: 3px;
 	padding: 3px;
+	transition: 0.1s var(--ease-out);
 
-	&:focus {
+	&:focus, &:focus:hover {
+		outline: none;
+		--form-border-color: var(--color-primary);
+		--form-border-weight: 2px;
 		color: $color__text-input-focus;
 	}
+
+	&:hover {
+		--form-border-color: var(--color-slate-lighter);
+	}
+
 }
 
 select {
@@ -31,3 +46,72 @@ select {
 textarea {
 	width: 100%;
 }
+
+
+body {
+	.gform {
+		&_body {
+			@include max-width;
+		}
+
+		&_wrapper {
+			.gfield_error {
+				[aria-invalid=true] { border: 2px solid var(--color-error); }
+			}
+
+			.gfield_error legend {
+				color: var(--color-text-heading);
+			}
+
+			.gfield_error .gfield_repeater_cell label,
+			.gfield_error label,
+			.gfield_validation_message,
+			.validation_message,
+			[aria-invalid=true]+label,
+			label+[aria-invalid=true] {
+				 color: var(--color-text);
+			}
+
+			.gfield_validation_message,
+			.validation_message {
+				background: none;
+				padding: 0!important;
+				border: none;
+				color: var(--color-error);
+				font-size: 0.875rem;
+			}
+
+			.gform_validation_errors {
+				@include max-width;
+				background: var(--color-white);
+				border: 1px solid var(--color-slate-lighter);
+				box-shadow: var(--shadow-md);
+				padding-bottom: calc(16px + var(--err-border-height));
+
+				> h2 {
+					font-weight: var(--font-medium);
+					color: var(--color-text);
+					font-size: 1.25rem;
+				}
+				> h2 .gform-icon {
+					height: calc(100% - var(--err-border-height));
+					color: var(--color-error);
+				}
+
+				&::after {
+					@include pseudo;
+					width: 100%;
+					height: var(--err-border-height);
+					background: var(--color-error);
+					bottom: 0px;
+					left: 0;
+					border-bottom-left-radius: 5px;
+					border-bottom-right-radius: 5px;
+				}
+			}
+
+			.gform_submission_error { margin-bottom: var(--err-border-height);}
+		} // wrapper
+	}
+}
+
