@@ -19,6 +19,7 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
+select,
 textarea {
 	color: $color__text-input;
 	border: var(--form-border-weight) solid var(--form-border-color);
@@ -37,10 +38,6 @@ textarea {
 		--form-border-color: var(--color-slate-lighter);
 	}
 
-}
-
-select {
-	border: 1px solid $color__border-input;
 }
 
 textarea {
@@ -111,7 +108,70 @@ body {
 			}
 
 			.gform_submission_error { margin-bottom: var(--err-border-height);}
+
+			/*
+			* Wizard
+			*/
+			.gf_page_steps {
+				--step-padding: calc(var(--space-md) + 0.75em);
+				@include flexCenter;
+				background: var(--color-bg);
+				border: none;
+				padding: var(--space-lg) clamp(var(--step-padding), var(--max-page-width), calc((100% - var(--max-page-width)) / 2));
+
+				@include breakpoint(tablg) { --step-padding: var(--space-xl); }
+
+				.gf_step {
+					display: grid;
+					grid-template-columns: 1fr 1rem 1fr;
+					align-items: center;
+					text-align: center;
+					margin: 0;
+					padding: 0;
+
+					&::before,
+					&::after {
+						content: "";
+						display: block;
+						height: 2px;
+						background: var(--color-slate-lighter);
+						width: 100%;
+					}
+
+					&:first-child::before { opacity: 0; }
+					&:last-child::after { opacity: 0; }
+
+					&_label {
+						grid-column: 1 / -1;
+						order: -1;
+						margin-bottom: var(--space-sm);
+						padding: 0 var(--space-lg);
+						width: 100%;
+						font-size: 1rem;
+						color: var(--color-primary);
+					}
+
+					&_number {
+						@include size(1rem);
+						text-indent: -9999px;
+						border: 2px solid var(--color-slate-lighter);
+						background: transparent;
+						transition: 0.12s var(--ease-out);
+
+						&::before { display: none!important; }
+					}
+
+					&_active .gf_step_number {
+						border-color: var(--color-primary);
+						background: var(--color-primary);
+					}
+
+					&_completed .gf_step_number{
+						background: url('svgs/icon-tick.svg') center center no-repeat;
+					}
+				}
+			} // steps
 		} // wrapper
-	}
+	} // gform
 }
 
