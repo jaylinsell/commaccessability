@@ -7,21 +7,22 @@
 	}
 }
 
-body.nav-toggled {
-	overflow: hidden;
+@include breakpoint(md, 'not all') {
+	body.nav-toggled {
+		overflow: hidden;
 
-	&::after {
-		@include pseudo;
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background: black;
-		opacity: 0.5;
-		z-index: 90;
+		&::after {
+			@include pseudo;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: black;
+			opacity: 0.5;
+			z-index: 90;
+		}
 	}
-
 }
 
 $main: '.nav__container';
@@ -39,6 +40,10 @@ $main: '.nav__container';
 	}
 
 	#{$main} {
+		.nav__controls {
+			display: none;
+		}
+
 		@include breakpoint(md, 'not all') {
 			&, .search-form { display: none; }
 
@@ -57,7 +62,8 @@ $main: '.nav__container';
 				display: grid;
 				grid-template-columns: 1fr 2em;
 				grid-gap: var(--space-md);
-				padding: var(--space-md);
+				padding: var(--space-lg) var(--space-md) var(--space-md);
+				margin-bottom: var(--space-sm);
 			}
 
 			.nav__close {
@@ -66,7 +72,9 @@ $main: '.nav__container';
 			}
 		}
 
-    @include breakpoint(xs, 'not all') {
+    @media only screen and (max-width: 600px) {
+			.nav__controls { padding: var(--space-md); }
+
 			.btn:first-child { display: block; }
 			.nav__close {
         &--tab { display: none; }
@@ -115,12 +123,19 @@ $main: '.nav__container';
 		> .current-menu-item,
 		> .current-menu-parent {
 			a { color: var(--nav-color); }
-			&::after {
-				@include pseudo;
-				height: 3px;
-				background: var(--nav-color);
-				width: 100%;
-				top: 1.75em;
+
+			@include breakpoint(md) {
+				&::after {
+					@include pseudo;
+					height: 3px;
+					background: var(--nav-color);
+					width: 100%;
+					top: 1.75em;
+				}
+			}
+
+			@include breakpoint(md, 'not all') {
+				background: var(--color-contrast-low);
 			}
 		}
 	}
@@ -191,6 +206,10 @@ $main: '.nav__container';
 			display: block;
 			width: 100%;
 			padding: var(--space-sm) var(--space-md);
+
+			background-image: url('svgs/icon-chevron.svg');
+			background-repeat: no-repeat;
+			background-position: calc(100% - var(--space-md)) center;
 		}
 	}
 

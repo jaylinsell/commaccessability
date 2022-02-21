@@ -48,8 +48,10 @@
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
 	document.addEventListener( 'click', function( event ) {
 		const isClickInside = siteNavigation.contains( event.target );
+		const closeBtn = siteNavigation.querySelector( '.nav__close' );
+		const isCloseBtn = closeBtn.contains( event.target );
 
-		if ( ! isClickInside ) {
+		if ( ! isClickInside || isCloseBtn ) {
 			siteNavigation.classList.remove( 'toggled' );
 			body.classList.remove( 'nav-toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
