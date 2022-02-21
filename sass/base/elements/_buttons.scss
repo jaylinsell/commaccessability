@@ -45,11 +45,6 @@ input[type="submit"] {
   }
 }
 
-// section,
-// article {
-//   + .btn { margin-top: var(--space-lg); }
-// }
-
 .btn {
   color: var(--btn-label);
   padding: var(--btn-padding);
@@ -62,6 +57,12 @@ input[type="submit"] {
   text-align: center;
   justify-content: center;
   min-width: min-content;
+
+  &:hover { --btn-bg: var(--color-hover); }
+  &:focus {
+    --btn-border-color: var(--color-primary-darker);
+    --btn-shadow: 0 0 5px 0 var(--color-primary-lighter);
+  }
 
 
 	&__group {
@@ -128,8 +129,13 @@ input[type="submit"] {
   }
 
   &--icon {
-    --btn-bg: transparent;
-    --btn-label: var(--color-primary);
+    &:not(.btn--primary) {
+      --btn-bg: transparent;
+      --btn-label: var(--color-primary);
+    }
+
+    --btn-padding: var(--space-xs);
+    --btn-icon-size: 2em;
 
     display: inline-flex;
     justify-content: center;
@@ -137,7 +143,6 @@ input[type="submit"] {
     height: var(--btn-icon-size);
     width: var(--btn-icon-size);
     flex-shrink: 0;
-    padding: 0;
 
     svg path {
       fill: currentColor;

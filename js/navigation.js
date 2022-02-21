@@ -31,9 +31,12 @@
 		menu.classList.add( 'nav-menu' );
 	}
 
+	const body = document.querySelector( 'body' );
+
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
+		body.classList.toggle( 'nav-toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
@@ -48,6 +51,7 @@
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
+			body.classList.remove( 'nav-toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );

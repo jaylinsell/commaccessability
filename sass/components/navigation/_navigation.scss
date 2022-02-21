@@ -7,12 +7,24 @@
 	}
 }
 
-.menu-main-menu-container {
-	@include breakpoint(md, 'not all') {
-		display: none;
+body.nav-toggled {
+	overflow: hidden;
+
+	&::after {
+		@include pseudo;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: black;
+		opacity: 0.5;
+		z-index: 90;
 	}
+
 }
 
+$main: '.nav__container';
 .nav {
 	display: flex;
 	align-items: flex-end;
@@ -23,14 +35,75 @@
 	}
 
 	&__toggle {
-
 		@include breakpoint(md) { display: none; }
+	}
+
+	#{$main} {
+		@include breakpoint(md, 'not all') {
+			&, .search-form { display: none; }
+
+			background: var(--color-white);
+			position: fixed;
+			right: 0;
+			top: 0;
+			width: 100%;
+			max-width: 302px;
+			bottom: 0;
+			z-index: 500;
+
+			.btn:first-child { display: none; }
+
+			.nav__controls {
+				display: grid;
+				grid-template-columns: 1fr 2em;
+				grid-gap: var(--space-md);
+				padding: var(--space-md);
+			}
+
+			.nav__close {
+				&--tab { display: block; }
+				&--mob { display: none; }
+			}
+		}
+
+    @include breakpoint(xs, 'not all') {
+			.btn:first-child { display: block; }
+			.nav__close {
+        &--tab { display: none; }
+        &--mob { display: block; }
+      }
+    }
+	}
+
+	&.toggled {
+		@include breakpoint(md, 'not all') {
+			// &::before {
+			// 	@include pseudo;
+			// 	width: 100vw;
+			// 	height: 100vh;
+			// 	background: black;
+			// 	opacity: 0.5;
+			// 	position: fixed;
+			// 	left: 0;
+			// 	top: 0;
+			// 	z-index: 90;
+			// }
+
+			#{$main} {
+				display: block;
+
+				.search-form { display: grid; }
+			}
+		}
 	}
 
 	&__list {
 		@include flex;
-		flex-wrap: nowrap;
-		gap: var(--nav-spacing);
+
+		@include breakpoint(md) {
+			flex-wrap: nowrap;
+			gap: var(--nav-spacing);
+		}
 
 		a, a:visited {
 			color: var(	--nav-color);
@@ -110,6 +183,16 @@
 
 .menu-item {
 	position: relative;
+
+	@include breakpoint(md, 'not all') {
+		width: 100%;
+
+		a{
+			display: block;
+			width: 100%;
+			padding: var(--space-sm) var(--space-md);
+		}
+	}
 
 	&:hover {
 		> .sub-menu { display: block; }

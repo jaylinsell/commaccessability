@@ -21,21 +21,23 @@ input[type="datetime-local"],
 input[type="color"],
 select,
 textarea {
-	color: $color__text-input;
-	border: var(--form-border-weight) solid var(--form-border-color);
-	border-radius: 3px;
-	padding: 3px;
-	transition: 0.1s var(--ease-out);
+	&, body .gform_wrapper.gravity-theme &{
+		color: $color__text-input;
+		border: var(--form-border-weight) solid var(--form-border-color);
+		border-radius: 3px;
+		padding: 0.75em 1em;
+		transition: 0.1s var(--ease-out);
 
-	&:focus, &:focus:hover {
-		outline: none;
-		--form-border-color: var(--color-primary);
-		--form-border-weight: 2px;
-		color: $color__text-input-focus;
-	}
+		&:focus, &:focus:hover {
+			outline: none;
+			--form-border-color: var(--color-primary);
+			--form-border-weight: 2px;
+			color: $color__text-input-focus;
+		}
 
-	&:hover {
-		--form-border-color: var(--color-slate-lighter);
+		&:hover {
+			--form-border-color: var(--color-slate-lighter);
+		}
 	}
 
 }
@@ -48,10 +50,36 @@ textarea {
 body {
 	.gform {
 		&_body {
+			--max-page-width: 800px;
 			@include max-width;
+			padding-top: var(--space-xl);
+			padding-bottom: var(--space-xl);
 		}
 
 		&_wrapper {
+			/*
+			* Field styling
+			*/
+			&.gravity-theme {
+				fieldset {
+					margin-bottom: var(--space-md);
+				}
+
+				.ginput_complex {
+					label,
+					legend{
+						margin-bottom: var(--space-xs);
+					}
+				}
+
+				.ginput_container_address span:not(.ginput_full):not(:last-of-type):not(:nth-last-of-type(2)),
+				.ginput_full:not(:last-of-type) { margin-bottom: var(--space-sm); }
+			}
+
+
+			/*
+			* Validations
+			*/
 			.gfield_error {
 				[aria-invalid=true] { border: 2px solid var(--color-error); }
 			}
@@ -117,7 +145,7 @@ body {
 				@include flexCenter;
 				background: var(--color-bg);
 				border: none;
-				padding: var(--space-lg) clamp(var(--step-padding), var(--max-page-width), calc((100% - var(--max-page-width)) / 2));
+				padding: var(--space-xl) clamp(var(--step-padding), var(--max-page-width), calc((100% - var(--max-page-width)) / 2));
 
 				@include breakpoint(tablg) { --step-padding: var(--space-xl); }
 
@@ -170,7 +198,21 @@ body {
 						background: url('svgs/icon-tick.svg') center center no-repeat;
 					}
 				}
+
 			} // steps
+
+			.gform_page_footer {
+				@include flex;
+				input[type=button]:first-child { order: 2; }
+			}
+
+			&.gravity-theme .gform_previous_button.button,
+			&.gravity-theme .gform_save_link.button {
+				color: var(--color-primary);
+				text-decoration: underline;
+				&:hover { color: var(--color-hover); }
+			}
+
 		} // wrapper
 	} // gform
 }

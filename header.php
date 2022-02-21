@@ -49,7 +49,7 @@
 				<button class="btn btn--secondary btn--small btn--icon" type="button" aria-label="Search">
 					<svg class="search__icon" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<title>Search</title>
-						<desc>Click to open the search field.</desc>
+						<desc>Hover to open the search field.</desc>
 						<path d="M7 13.0762C10.3137 13.0762 13 10.3728 13 7.03809C13 3.70334 10.3137 1 7 1C3.68629 1 1 3.70334 1 7.03809C1 10.3728 3.68629 13.0762 7 13.0762Z" stroke="#5C068C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 						<path d="M16.9999 17.1021L11.2856 11.3516" stroke="#5C068C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
@@ -61,14 +61,23 @@
 
 		<nav id="site-navigation" class="nav">
 			<button class="nav__toggle btn btn--secondary" aria-controls="primary-menu" aria-expanded="false">Menu</button>
-			<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-						'menu_class'		 => 'nav__list',
-					)
-				);
-			?>
+			<div class="nav__container">
+				<header class="nav__controls">
+					<button class="btn btn--primary btn--small" type="button">Book Transport</button>
+					<!-- Button duplicated so that styles don't effect the accessibility flow that re-ordering has -->
+					<button class="btn btn--primary btn--icon nav__close nav__close--mob">X</button>
+					<?php get_search_form() ?>
+					<button class="btn btn--primary btn--icon nav__close nav__close--tab">X</button>
+				</header>
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+							'menu_class'		 => 'nav__list',
+						)
+					);
+				?>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
