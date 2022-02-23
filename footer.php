@@ -66,10 +66,11 @@
 
 		<section class="footer__bottom">
 			<div class="flags">
-				<img src="" alt="">
-				<img src="" alt="">
-				<img src="" alt="">
-				<img src="" alt="">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/flag-aus.jpg" alt="Australian Flag">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/flag-ab.jpg" alt="Aboriginal Flag">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/flag-torres.jpg" alt="Torres Strait Islander Flag">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/flag-LGTBQIA.jpg" alt="LGTBQIA Flag">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/flag-trans.jpg" alt="Transgender Pride Flag">
 			</div>
 
 			<section class="footer__legals grid grid--2">

@@ -1,7 +1,7 @@
 {
   "app/main.js.map": "app/main.js.map",
   "main.js": "app/main.js",
-  "main.js.map": "main.c1535e8482a2dc8fec11.hot-update.js.map",
+  "main.js.map": "main.eb81e2bf9f2d1ff9cf99.hot-update.js.map",
   "runtime.js": "app/runtime.js",
   "runtime.js.map": "app/runtime.js.map",
   "vendors~main.js": "app/vendors~main.js",
@@ -18,7 +18,7 @@
           "app/runtime.js.map",
           "app/vendors~main.js.map",
           "app/main.js.map",
-          "main.c1535e8482a2dc8fec11.hot-update.js.map"
+          "main.eb81e2bf9f2d1ff9cf99.hot-update.js.map"
         ]
       }
     }

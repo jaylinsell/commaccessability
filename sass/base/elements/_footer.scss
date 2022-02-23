@@ -36,13 +36,30 @@
 
   &__cols {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: var(--space-md);
   }
 
   &__nav-list {
     li {
       + li { margin-top: var(--space-sm); }
+
+      &.contact,
+      &.facebook,
+      &.linkedin {
+        &::before {
+          @include size(1em);
+          content: "";
+          display: inline-block;
+          vertical-align: bottom;
+          background: var(--link-icon) center no-repeat;
+          margin-right: var(--space-xs);
+        }
+      }
+
+      &.contact { --link-icon: url('svgs/icon-phone.svg'); }
+      &.facebook { --link-icon: url('svgs/icon-facebook.svg'); }
+      &.linkedin { --link-icon: url('svgs/icon-linkedin.svg'); }
     }
   }
 
@@ -51,8 +68,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xl);
-
-
   }
 
   .flags {
@@ -61,7 +76,6 @@
     margin-bottom: var(--space-sm);
 
     img {
-      border: 1px solid red;
       min-height: 1.875em;
       aspect-ratio: 2/1;
     }
