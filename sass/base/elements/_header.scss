@@ -21,10 +21,18 @@
     grid-row: 1 / span 2;
   }
 
+  &__top,
+  .nav > {
+    .btn {
+      max-height: 2.375em;
+    }
+  }
+
   &__top {
-    @include flex;
+    display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: var(--space-sm);
 
     > *:first-child { margin-right: auto; }
 
@@ -35,8 +43,43 @@
     @include breakpoint(md, 'not all') {
       grid-column: 3;
       grid-row: 2;
+
+      .search { display: none; }
     }
     @media only screen and (max-width: 600px) { display: none; }
+
+    .search-form {
+
+      &--hover,
+      &:focus-within {
+        max-width: 400px;
+        width: 100vw;
+      }
+
+      label {
+        transition: 0.15s var(--ease-out);
+        width: 0;
+        opacity: 0;
+        margin-left: auto;
+      }
+
+      .btn--search {
+        &:hover {
+          --btn-bg: var(--color-contrast-low);
+          --btn-label: var(--color-primary);
+          opacity: 0.5;
+        }
+      }
+
+      &:hover,
+      &:focus-within {
+        label {
+          width: 100%;
+          opacity: 1;
+        }
+      }
+    }
+
   }
 
   .search {
@@ -63,11 +106,14 @@
   .search-form {
     display: grid;
     grid-template-columns: 1fr 2em;
+    align-items: center;
 
     label {
       grid-column: 1 / -1;
       grid-row: 1;
     }
+
+    .btn { transform: translateX(-4px); }
 
     @include breakpoint(md, 'not all') { grid-column: 1; }
     @include breakpoint(xs, 'not all') { grid-column: 1 / -1; }

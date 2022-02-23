@@ -46,16 +46,38 @@
 	} );
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
+	const searchBtn = document.querySelector( '.header__top .btn--search' );
+	const searchField = document.querySelector( '.header__top .search-field' );
+	const searchForm = document.querySelector( '.header__top .search-form' );
+
 	document.addEventListener( 'click', function( event ) {
 		const isClickInside = siteNavigation.contains( event.target );
-		const closeBtn = siteNavigation.querySelector( '.nav__close' );
-		const isCloseBtn = closeBtn.contains( event.target );
+		const closeBtns = siteNavigation.querySelectorAll( '.nav__close' );
+		const isCloseBtn = [ ...closeBtns ].some( ( btn ) => btn.contains( event.target ) );
 
 		if ( ! isClickInside || isCloseBtn ) {
 			siteNavigation.classList.remove( 'toggled' );
 			body.classList.remove( 'nav-toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
+
+		// if search btn- we just want to focus on the field if it's empty
+		if ( searchBtn && searchBtn.contains( event.target ) ) {
+			if ( ! searchField.value ) {
+				event.preventDefault();
+				searchField.focus();
+			}
+		}
+	} );
+
+	[ searchBtn, searchField ].forEach( ( el ) => {
+		el.addEventListener( 'mouseenter', () => {
+			searchForm.classList.add( 'search-form--hover' );
+		} );
+
+		el.addEventListener( 'mouseleave', () => {
+			searchForm.classList.remove( 'search-form--hover' );
+		} );
 	} );
 
 	// Get all the link elements within the menu.

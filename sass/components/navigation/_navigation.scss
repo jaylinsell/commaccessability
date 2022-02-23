@@ -67,7 +67,8 @@ $main: '.nav__container';
 			}
 
 			.nav__close {
-				&--tab { display: block; }
+				--btn-padding: 0.3125em;
+				&--tab { display: inline-flex; }
 				&--mob { display: none; }
 			}
 		}
@@ -78,24 +79,13 @@ $main: '.nav__container';
 			.btn:first-child { display: block; }
 			.nav__close {
         &--tab { display: none; }
-        &--mob { display: block; }
+        &--mob { display: inline-flex; }
       }
     }
 	}
 
 	&.toggled {
 		@include breakpoint(md, 'not all') {
-			// &::before {
-			// 	@include pseudo;
-			// 	width: 100vw;
-			// 	height: 100vh;
-			// 	background: black;
-			// 	opacity: 0.5;
-			// 	position: fixed;
-			// 	left: 0;
-			// 	top: 0;
-			// 	z-index: 90;
-			// }
 
 			#{$main} {
 				display: block;

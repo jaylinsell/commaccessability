@@ -45,29 +45,37 @@
 		<section class="header__top">
 			<button id="accessabillity" class="btn btn--secondary btn--small btn--accessability" type="button" role="listbox">Accessability</button>
 
-			<div class="search">
-				<button class="btn btn--secondary btn--small btn--icon" type="button" aria-label="Search">
-					<svg class="search__icon" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<title>Search</title>
-						<desc>Hover to open the search field.</desc>
-						<path d="M7 13.0762C10.3137 13.0762 13 10.3728 13 7.03809C13 3.70334 10.3137 1 7 1C3.68629 1 1 3.70334 1 7.03809C1 10.3728 3.68629 13.0762 7 13.0762Z" stroke="#5C068C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-						<path d="M16.9999 17.1021L11.2856 11.3516" stroke="#5C068C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-
-				</button>
+			<div class="search" aria-label="Hover to open search">
+				<?php get_search_form() ?>
 			</div>
 			<button class="btn btn--primary btn--small" type="button">Book Transport</button>
 		</section>
 
 		<nav id="site-navigation" class="nav">
-			<button class="nav__toggle btn btn--secondary" aria-controls="primary-menu" aria-expanded="false">Menu</button>
+			<button class="nav__toggle btn btn--secondary" aria-controls="primary-menu" aria-expanded="false">
+				Menu
+				<svg class="nav__toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect x="4" y="5" width="16" height="2" rx="1" />
+					<rect x="4" y="11" width="16" height="2" rx="1" />
+					<rect x="4" y="17" width="16" height="2" rx="1" />
+				</svg>
+			</button>
+
 			<div class="nav__container">
 				<header class="nav__controls">
 					<button class="btn btn--primary btn--small" type="button">Book Transport</button>
 					<!-- Button duplicated so that styles don't effect the accessibility flow that re-ordering has -->
-					<button class="btn btn--primary btn--icon nav__close nav__close--mob">X</button>
+					<button class="btn btn--primary btn--icon nav__close nav__close--mob">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13.4139 12.0004L16.9499 8.46538C17.0454 8.37314 17.1216 8.26279 17.174 8.14079C17.2264 8.01878 17.254 7.88756 17.2552 7.75478C17.2563 7.622 17.231 7.49032 17.1807 7.36743C17.1305 7.24453 17.0562 7.13288 16.9623 7.03899C16.8684 6.94509 16.7568 6.87084 16.6339 6.82056C16.511 6.77028 16.3793 6.74498 16.2465 6.74613C16.1137 6.74729 15.9825 6.77487 15.8605 6.82728C15.7385 6.87969 15.6282 6.95587 15.5359 7.05138L11.9999 10.5864L8.46392 7.05138C8.27531 6.86922 8.02271 6.76843 7.76052 6.77071C7.49832 6.77299 7.24751 6.87816 7.0621 7.06356C6.87669 7.24897 6.77152 7.49978 6.76924 7.76198C6.76696 8.02418 6.86776 8.27678 7.04992 8.46538L10.5859 12.0004L7.04992 15.5354C6.95441 15.6276 6.87822 15.738 6.82582 15.86C6.77341 15.982 6.74582 16.1132 6.74467 16.246C6.74351 16.3788 6.76881 16.5104 6.8191 16.6333C6.86938 16.7562 6.94363 16.8679 7.03752 16.9618C7.13141 17.0557 7.24307 17.1299 7.36596 17.1802C7.48886 17.2305 7.62054 17.2558 7.75332 17.2546C7.8861 17.2535 8.01732 17.2259 8.13932 17.1735C8.26133 17.1211 8.37167 17.0449 8.46392 16.9494L11.9999 13.4144L15.5359 16.9494C15.6282 17.0449 15.7385 17.1211 15.8605 17.1735C15.9825 17.2259 16.1137 17.2535 16.2465 17.2546C16.3793 17.2558 16.511 17.2305 16.6339 17.1802C16.7568 17.1299 16.8684 17.0557 16.9623 16.9618C17.0562 16.8679 17.1305 16.7562 17.1807 16.6333C17.231 16.5104 17.2563 16.3788 17.2552 16.246C17.254 16.1132 17.2264 15.982 17.174 15.86C17.1216 15.738 17.0454 15.6276 16.9499 15.5354L13.4139 12.0004Z"/>
+						</svg>
+					</button>
 					<?php get_search_form() ?>
-					<button class="btn btn--primary btn--icon nav__close nav__close--tab">X</button>
+					<button class="btn btn--primary btn--icon nav__close nav__close--tab">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13.4139 12.0004L16.9499 8.46538C17.0454 8.37314 17.1216 8.26279 17.174 8.14079C17.2264 8.01878 17.254 7.88756 17.2552 7.75478C17.2563 7.622 17.231 7.49032 17.1807 7.36743C17.1305 7.24453 17.0562 7.13288 16.9623 7.03899C16.8684 6.94509 16.7568 6.87084 16.6339 6.82056C16.511 6.77028 16.3793 6.74498 16.2465 6.74613C16.1137 6.74729 15.9825 6.77487 15.8605 6.82728C15.7385 6.87969 15.6282 6.95587 15.5359 7.05138L11.9999 10.5864L8.46392 7.05138C8.27531 6.86922 8.02271 6.76843 7.76052 6.77071C7.49832 6.77299 7.24751 6.87816 7.0621 7.06356C6.87669 7.24897 6.77152 7.49978 6.76924 7.76198C6.76696 8.02418 6.86776 8.27678 7.04992 8.46538L10.5859 12.0004L7.04992 15.5354C6.95441 15.6276 6.87822 15.738 6.82582 15.86C6.77341 15.982 6.74582 16.1132 6.74467 16.246C6.74351 16.3788 6.76881 16.5104 6.8191 16.6333C6.86938 16.7562 6.94363 16.8679 7.03752 16.9618C7.13141 17.0557 7.24307 17.1299 7.36596 17.1802C7.48886 17.2305 7.62054 17.2558 7.75332 17.2546C7.8861 17.2535 8.01732 17.2259 8.13932 17.1735C8.26133 17.1211 8.37167 17.0449 8.46392 16.9494L11.9999 13.4144L15.5359 16.9494C15.6282 17.0449 15.7385 17.1211 15.8605 17.1735C15.9825 17.2259 16.1137 17.2535 16.2465 17.2546C16.3793 17.2558 16.511 17.2305 16.6339 17.1802C16.7568 17.1299 16.8684 17.0557 16.9623 16.9618C17.0562 16.8679 17.1305 16.7562 17.1807 16.6333C17.231 16.5104 17.2563 16.3788 17.2552 16.246C17.254 16.1132 17.2264 15.982 17.174 15.86C17.1216 15.738 17.0454 15.6276 16.9499 15.5354L13.4139 12.0004Z"/>
+						</svg>
+					</button>
 				</header>
 				<?php
 					wp_nav_menu(
