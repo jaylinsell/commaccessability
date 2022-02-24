@@ -18,14 +18,28 @@ get_header();
 	<main id="primary" class="site-main">
 		<section class="page__header section section--full <?php if( !is_front_page() || !is_home()) :?>page__header--home<?php endif; ?>">
 			<article>
-				<h1>Enabling Independance</h1>
-				<p>Every person has the opportunity to live the life they choose.</p>
-				<a href="#" class="btn btn--invert">Call to action</a>
+				<h1><?php single_post_title(); ?></h1>
+					<?php if( get_field('page_summary') ): ?>
+						<p><?php echo get_field('page_summary'); ?></p>
+					<?php endif; ?>
+
+					<?php
+						$c2a = get_field('call_to_action');
+						$btnLabel = get_field('button_label');
+						$page = get_field('page');
+						$url = get_field('url');
+
+						$href = $c2a === 'page' ? $page : $url;
+
+						if ( $c2a !== 'none' ):
+					?>
+						<a href="<?php echo $href; ?>" class="btn btn--invert"><?php echo $btnLabel; ?></a>
+					<?php endif; ?>
 			</article>
 
 			<figure>
 				<!-- // TODO - MAKE CHANGEABLE -->
-				<img src="<?php echo get_template_directory_uri(); ?>/images/Disability_Transport.jpg" alt="">
+				<?php the_post_thumbnail(); ?>
 			</figure>
 		</section>
 
