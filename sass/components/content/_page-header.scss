@@ -52,10 +52,15 @@
   *:is(h1, h2, h3, h4, h5, h6) { color: var(--color-accent); }
 
   article {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-content: center;
     padding: var(--p-h-padding);
     position: relative;
     z-index: 1;
+
     p, span { font-size: var(--text-lg); }
+    > *:not(.btn) { width: 100%; }
 
     @include breakpoint (md, 'not all') {
       grid-row: 1 / span 2;
@@ -66,6 +71,8 @@
   .btn {
     --btn-bg: var(--color-white);
     --btn-label: var(--color-primary);
+
+    display: none;
 
     &:hover {
       --btn-bg: var(--color-hover);
@@ -96,8 +103,14 @@
   }
 
   &.page__header--home {
+    .btn { display: inline-flex; }
+
     @include breakpoint(md, 'not all') {
       grid-template-rows: auto var(--space-xl) auto;
+
+      article {
+        align-content: flex-start;
+      }
     }
 
     figure {
