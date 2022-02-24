@@ -16,7 +16,7 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-		<section class="page__header section section--full">
+		<section class="page__header section section--full <?php if( !is_front_page() || !is_home()) :?>page__header--home<?php endif; ?>">
 			<article>
 				<h1>Enabling Independance</h1>
 				<p>Every person has the opportunity to live the life they choose.</p>

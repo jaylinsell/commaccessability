@@ -1,12 +1,26 @@
 :root {
   --p-h-columns: minmax(0, 1fr) 1fr;
-  --p-h-mask: url(svgs/desktop-mask.svg);
-  --p-h-padding: var(--space-xxl) 0 var(--space-xxl) clamp(var(--space-xl), var(--max-page-width), calc(100% - var(--max-page-width) / 2));
+  --p-h-mask: url(svgs/page-mask.svg);
+  --p-h-padding: var(--space-md) 0;
+  --p-h-root-padding: 0 clamp(var(--space-xl), var(--max-page-width), calc((100% - var(--max-page-width)) / 2));
+  --p-h-max-height: 276px;
+
+  @include breakpoint(lg) {
+    --p-h-aspect-ratio: 875 / 378;
+  }
+
+  @include breakpoint(lg, 'not all') {
+    --p-h-root-padding: 0 0 0 clamp(var(--space-xl), var(--max-page-width), calc((100% - var(--max-page-width)) / 2));
+  }
 
   @include breakpoint(md, 'not all') {
+    --p-h-columns: 1fr 0.85fr;
+  }
+
+  @media screen and (max-width: 640px) {
     --p-h-columns: 1fr;
-    --p-h-mask: url(svgs/mob-mask.svg);
-    --p-h-padding: var(--space-lg);
+    --p-h-root-padding: 0 clamp(var(--space-xl), var(--max-page-width), calc((100% - var(--max-page-width)) / 2));
+    --p-h-max-height: unset;
   }
 }
 
@@ -15,9 +29,24 @@
   color: white;
   display: grid;
   grid-template-columns: var(--p-h-columns);
+  grid-template-rows: var(--p-h-max-height);
+  padding: var(--p-h-root-padding);
+  max-height: var(--p-h-max-height);
 
-  @include breakpoint(md, 'not all') {
-    grid-template-rows: auto var(--space-xl) auto;
+  &--home {
+    // --p-h-columns: minmax(0, 1fr) 1fr;
+    --p-h-max-height: 100%;
+    --p-h-root-padding: 0;
+    --p-h-mask: url(svgs/desktop-mask.svg);
+    --p-h-padding: var(--space-xxl) 0 var(--space-xxl) clamp(var(--space-xl), var(--max-page-width), calc(100% - var(--max-page-width) / 2));
+    --p-h-aspect-ratio: auto;
+
+    @include breakpoint(md, 'not all') {
+      // --p-h-columns: 1fr;
+      --p-h-mask: url(svgs/mob-mask.svg);
+      --p-h-padding: var(--space-lg);
+      --p-h-columns: 1fr;
+    }
   }
 
   *:is(h1, h2, h3, h4, h5, h6) { color: var(--color-accent); }
@@ -48,19 +77,37 @@
     margin: 0;
     mask-image: var(--p-h-mask);
     mask-size: cover;
-
-    @include breakpoint(md, 'not all') {
-      margin: auto auto -3px;
-      grid-column: 1;
-      grid-row: 2 / span 2;
-      aspect-ratio: 180 / 89;
-      width: 100%;
-    }
+    max-height: var(--p-h-max-height);
+    aspect-ratio: var(--p-h-aspect-ratio);
 
     img {
       object-fit: cover;
       height: 100%;
       width: 100%;
+    }
+  }
+
+  &:not(.page__header--home) {
+    figure {
+      @media screen and (max-width: 640px) {
+        display: none;
+      }
+    }
+  }
+
+  &.page__header--home {
+    @include breakpoint(md, 'not all') {
+      grid-template-rows: auto var(--space-xl) auto;
+    }
+
+    figure {
+      @include breakpoint(md, 'not all') {
+        margin: auto auto -3px;
+        grid-column: 1;
+        grid-row: 2 / span 2;
+        aspect-ratio: 180 / 89;
+        width: 100%;
+      }
     }
   }
 }
