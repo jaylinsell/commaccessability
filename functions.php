@@ -156,6 +156,9 @@ function commaccessability_scripts() {
 	wp_style_add_data( 'commaccessability-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'commaccessability-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'tabs', get_template_directory_uri() . '/js/vanilla-js-tabs.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'popperjs', 'https://unpkg.com/@popperjs/core@2', array(), null, true );
+	wp_enqueue_script( 'tippy', 'https://unpkg.com/tippy.js@6', array(), null, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -189,4 +192,10 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+function add_page_categories() {
+	register_taxonomy_for_object_type('category', 'page');
+}
+// Add to the admin_init hook of your theme functions.php file
+add_action( 'init', 'add_page_categories' );
 

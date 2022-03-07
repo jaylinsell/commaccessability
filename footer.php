@@ -82,9 +82,6 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
-
 <script>
 		// With the above scripts loaded, you can call `tippy()` with a CSS
 		// selector and a `content` prop:

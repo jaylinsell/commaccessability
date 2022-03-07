@@ -1,0 +1,36 @@
+/* --------------- styles for tabs -----------------------*/
+
+.invisible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+
+
+.js-tablist__list {
+  margin: 0;
+  padding: 0;
+}
+.js-tablist__item {
+  display: inline-block;
+}
+
+.js-tablist__link {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--color-primary);
+}
+
+[aria-selected="true"].js-tablist__link {
+  color: var(--color-primary);
+}
+
+[aria-hidden="true"].js-tabcontent {
+  display: none;
+}

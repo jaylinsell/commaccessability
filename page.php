@@ -71,6 +71,14 @@ get_header();
 						<?php get_template_part('partials/related'); ?>
 					<?php endif; ?>
 
+					<?php if( get_row_layout() == 'people' ): ?>
+						<?php get_template_part('partials/people'); ?>
+					<?php endif; ?>
+
+					<?php if( get_row_layout() == 'events' ): ?>
+						<?php get_template_part('partials/events'); ?>
+					<?php endif; ?>
+
 				<?php endwhile; ?>
 		<?php endif; ?>
 	</main><!-- #main -->
