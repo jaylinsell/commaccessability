@@ -94,7 +94,9 @@ a:not(.btn) {
 	transition: .2s var(--ease-out);
 	text-decoration: none;
 
-	&:visited { color: var(--color-link-visited); }
+	.content & { border-bottom: 1px solid currentColor; }
+
+	// &:visited { color: var(--color-link-visited); }
 	&:hover{ color: var(--color-hover); }
 }
 

@@ -112,9 +112,9 @@ function _defineProperty( obj, key, value ) {
 		setTimeout( function() {
 			el.focus();
 		}, 0 );
-		setTimeout( function() {
-			history.pushState( null, null, location.pathname + location.search + '#' + el.getAttribute( ATTR_CONTROLS ) );
-		}, DELAY_HASH_UPDATE );
+		// setTimeout( function() {
+		// 	history.pushState( null, null, location.pathname + location.search + '#' + el.getAttribute( ATTR_CONTROLS ) );
+		// }, DELAY_HASH_UPDATE );
 	};
 
 	const selectLinkInList = function selectLinkInList( itemsList, linkList, contentList, param ) {
