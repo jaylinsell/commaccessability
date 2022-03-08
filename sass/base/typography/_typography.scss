@@ -94,7 +94,10 @@ a:not(.btn) {
 	transition: .2s var(--ease-out);
 	text-decoration: none;
 
-	.content & { border-bottom: 1px solid currentColor; }
+	.content & {
+		border-bottom: 1px solid currentColor;
+		font-weight: var(--font-medium);
+	}
 
 	// &:visited { color: var(--color-link-visited); }
 	&:hover{ color: var(--color-hover); }

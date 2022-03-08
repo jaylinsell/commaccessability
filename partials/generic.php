@@ -1,7 +1,16 @@
 <?php
   /** Template to display generic content */
+  $bg = get_sub_field('background_colour');
+  $greyBG = false;
+
+  if ($bg == 'grey') {
+    $greyBG = true;
+  }
 ?>
-<section class="section">
+<section class="section <?php if( $greyBG ) : ?>section--full section--grey<?php endif; ?>">
+  <?php if ( $greyBG ) : ?>
+    <div class="section">
+  <?php endif; ?>
   <article class="content section--content">
     <?php the_sub_field('general_content'); ?>
 
@@ -19,4 +28,7 @@
         </div>
       <?php endif; ?>
   </article>
+  <?php if ( $greyBG ) : ?>
+    </div>
+  <?php endif; ?>
 </section>

@@ -79,6 +79,10 @@ get_header();
 						<?php get_template_part('partials/events'); ?>
 					<?php endif; ?>
 
+					<?php if( get_row_layout() == 'locations' ): ?>
+						<?php get_template_part('partials/locations'); ?>
+					<?php endif; ?>
+
 				<?php endwhile; ?>
 		<?php endif; ?>
 	</main><!-- #main -->
