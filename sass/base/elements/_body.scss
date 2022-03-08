@@ -41,4 +41,4 @@ html, body {
 	padding: var(--space-xl) 0;
 }
 
-.site-main>.section + .section:not(.section--grey) { padding-top: 0; }
+.site-main>.section:not(.page__header):not(.section--grey) + .section:not(.section--grey) { padding-top: 0; }

@@ -17,9 +17,7 @@
     color: var(--color-white);
     font-weight: var(--font-medium);
 
-    &:visited, &:hover {
-      color: var(--color-accent-light);
-    }
+    &:hover { color: var(--color-accent-light); }
   }
 
 	&__top,

@@ -62,11 +62,15 @@
 		}
 
 		// if search btn- we just want to focus on the field if it's empty
-		if ( searchBtn && searchBtn.contains( event.target ) ) {
-			if ( ! searchField.value ) {
+		if ( searchBtn && searchBtn.contains( event.target ) || searchForm && searchForm.contains( event.target ) ) {
+			if ( ! searchForm.classList.contains( 'search-form--open' ) ) {
 				event.preventDefault();
+				searchForm.classList.add( 'search-form--open' );
 				searchField.focus();
 			}
+		} else if ( searchForm.classList.contains( 'search-form--open' ) ) {
+			console.log( event.target );
+			searchForm.classList.remove( 'search-form--open' );
 		}
 	} );
 

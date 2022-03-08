@@ -16,7 +16,7 @@ $enqueue = new caEnque('appName', 'outputPath', '1.0.0', 'theme', __FILE__);
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.1.0' );
 }
 
 if ( ! function_exists( 'commaccessability_setup' ) ) :
@@ -152,11 +152,11 @@ add_action( 'widgets_init', 'commaccessability_widgets_init' );
  * Enqueue scripts and styles.
  */
 function commaccessability_scripts() {
-	wp_enqueue_style( 'commaccessability-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'commaccessability-style', get_stylesheet_uri(), array() );
 	wp_style_add_data( 'commaccessability-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'commaccessability-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'tabs', get_template_directory_uri() . '/js/vanilla-js-tabs.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'tabs', get_template_directory_uri() . '/js/vanilla-js-tabs.js', array(), false, true );
 	wp_enqueue_script( 'popperjs', 'https://unpkg.com/@popperjs/core@2', array(), null, true );
 	wp_enqueue_script( 'tippy', 'https://unpkg.com/tippy.js@6', array(), null, true );
 
@@ -198,4 +198,13 @@ function add_page_categories() {
 }
 // Add to the admin_init hook of your theme functions.php file
 add_action( 'init', 'add_page_categories' );
+
+// function search_filter( $query ) {
+// 	if ( $query->is_search ) {
+// 			$query->set( 'post_type', array('page') );
+// 	}
+// 	return $query;
+// }
+// add_filter('pre_get_posts','search_filter');
+
 

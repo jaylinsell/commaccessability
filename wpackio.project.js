@@ -8,20 +8,21 @@ module.exports = {
 	// Used to generate banners on top of compiled stuff
 	bannerConfig: {
 		name: 'communityAccessability',
-		author: 'Automattic Theme Team',
+		author: 'Jay Linsell',
 		license: 'GPL-2.0-or-later',
 		link: 'GPL-2.0-or-later',
 		version: pkg.version,
 		copyrightText:
 			'This software is released under the GPL-2.0-or-later License\nhttps://opensource.org/licenses/GPL-2.0-or-later',
-		credit: true,
+		credit: false,
 	},
 	// Files we need to compile, and where to put
 	files: [
 		{
 			name: 'app',
 			entry: {
-				main: [ './js/index.js', './sass/style.scss' ],
+				// main: [ './js/index.js', './sass/style.scss' ],
+				main: [ './js/index.js' ],
 			},
 			optimizeForGutenberg: false,
 			webpackConfig: undefined,
@@ -93,7 +94,7 @@ module.exports = {
 	packageFiles: [
 		'inc/**',
 		'vendor/**',
-		'dist/**',
+		// 'dist/**',
 		'*.php',
 		'*.md',
 		'readme.txt',
@@ -101,9 +102,40 @@ module.exports = {
 		'layouts/**',
 		'LICENSE',
 		'*.css',
+		'images/**',
+		'fonts/**',
+		'svgs/**',
+		'js/**',
+		'partials/**',
+		'template-parts/**',
 	],
 	// Path to package directory, relative to the root
 	packageDirPath: 'package',
 	// whether or not to disable wordpress external scripts handling
 	disableWordPressExternals: false,
+
+	// Extra webpack config to be dynamically created
+	webpackConfig: ( config, merge, appDir, isDev ) => {
+		// create a new module.rules for svg-inline-loader
+		const customRules = {
+			module: {
+				rules: [
+					// Inline svg loader
+					// https://webpack.js.org/loaders/svg-inline-loader/#configuration
+					{
+						test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+						use: {
+							loader: 'svg-url-loader',
+							options: {
+								encoding: 'base64',
+							},
+						},
+
+					},
+				],
+			},
+		};
+		// merge and return
+		return merge( config, customRules );
+	},
 };

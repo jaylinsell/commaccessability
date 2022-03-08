@@ -1,0 +1,16 @@
+.search__results {
+  > article {
+    padding: 0 0 var(--space-sm);
+    border-bottom: 1px solid var(--color-slate-light);
+
+    &:first-of-type {
+      border-top: 1px solid var(--color-slate-light);
+      margin-top: var(--space-lg);
+    }
+  }
+
+  .search__title a:not(.btn) {
+    font-size: 1.5rem;
+    border-bottom: 0;
+  }
+}
