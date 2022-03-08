@@ -40,3 +40,5 @@ html, body {
 .site-main > [class^=section] {
 	padding: var(--space-xl) 0;
 }
+
+.site-main>.section + .section:not(.section--grey) { padding-top: 0; }
