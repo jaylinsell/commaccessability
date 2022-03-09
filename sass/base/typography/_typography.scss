@@ -122,13 +122,17 @@ ul, ol { list-style: none; }
 	h4 { margin-top: var(--space-sm); }
 
 	ul,
-	ol{ margin-bottom: var(--space-lg); }
+	ol{
+		margin-bottom: var(--space-lg);
+		font-size: var(--text-base-size);
+		line-height: var(--body-line-height);
+	}
 	p {
 		margin-bottom: var(--space-md);
 		max-width: 60ch;
 	}
 
-	ul { list-style: disc; }
+	ul { list-style: disc;  margin-left: var(--space-md); }
 	ol { list-style: auto; }
 
 	li > ul, ol { margin-left: var(--space-md); }
@@ -187,27 +191,13 @@ blockquote {
 	font-style: italic;
 	font-size: var(--text-md);
 	margin-bottom: 0;
-	color: var(--color-accent);
 	position: relative;
+	color: var(--color-primary);
+	border-left: 3px solid var(--color-primary);
+	padding-left: var(--space-lg);
 
 	@include breakpoint(md, 'not all') {
 		margin-left: var(--grid-start-margin);
-	}
-
-	&:before {
-		@extend %bqPsuedo;
-		top: 1.9em;
-		left: -1.1em;
-	}
-
-	@media screen {
-		@supports(background-clip: text) or (-webkit-background-clip: text) {
-			color: rgba(0,0,0,0.02);
-			background-image: var(--gradient--highlight);
-
-			background-clip: text;
-			-webkit-background-clip: text;
-		}
 	}
 }
 

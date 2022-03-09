@@ -4,6 +4,14 @@
 	--err-border-height: 8px;
 }
 
+%checkbox {
+	background-color: var(--color-primary);
+	background-image: url('svgs/icon-tick.svg');
+	border-color: var(--color-primary);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -28,6 +36,11 @@ textarea {
 		padding: 0.75em 1em;
 		transition: 0.1s var(--ease-out);
 		font-size: 1em!important;
+		font-family: var(--font-primary);
+
+		&[aria-invalid=true] {
+			border: 2px solid var(--color-error);
+		}
 
 		&:focus, &:focus:hover {
 			outline: none;
@@ -79,11 +92,7 @@ input[type="radio"] {
 
 	&:checked {
 		+ span::before {
-			background-color: var(--color-primary);
-			background-image: url('svgs/icon-tick.svg');
-			border-color: var(--color-primary);
-			background-repeat: no-repeat;
-			background-position: center;
+			@extend %checkbox;
 		}
 	}
 
@@ -95,10 +104,15 @@ input[type="radio"] {
 body {
 	.gform {
 		&_body {
-			--max-page-width: 800px;
+			--max-page-width: 840px;
 			@include max-width;
 			padding-top: var(--space-xl);
-			padding-bottom: var(--space-xl);
+			width: 100%;
+
+			&:last-of-type {
+				padding-bottom: var(--space-xl);
+			}
+			// padding-bottom: var(--space-xl);
 		}
 
 		&_wrapper {
@@ -142,6 +156,8 @@ body {
 				 color: var(--color-text);
 			}
 
+			.gfield_required { color: var(--color-error); }
+
 			.gfield_validation_message,
 			.validation_message {
 				background: none;
@@ -149,10 +165,23 @@ body {
 				border: none;
 				color: var(--color-error);
 				font-size: 0.875rem;
+
+				&::before {
+					@include size(1.4em);
+					content: "";
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					background: url('svgs/icon-alert.svg') no-repeat center;
+					border-radius: 100%;
+					vertical-align: text-top;
+					margin-right: var(--space-xs);
+				}
 			}
 
 			.gform_validation_errors {
 				@include max-width;
+				width: 100%;
 				background: var(--color-white);
 				border: 1px solid var(--color-slate-lighter);
 				box-shadow: var(--shadow-md);
@@ -258,12 +287,70 @@ body {
 				&:hover { color: var(--color-hover); }
 			}
 
-			&.gravity-theme .gfield_label { font-size: 1rem; }
-			&.gravity-theme .gfield_header_item,
-			&.gravity-theme .gform_fileupload_rules,
-			&.gravity-theme .ginput_complex label {
-				font-size: 0.9rem;
-			}
+
+			&.gravity-theme {
+				.gfield_label {
+					color: var(--color-secondary);
+					font-size: 1.05em;
+				}
+
+				.gfield_header_item,
+				.gform_fileupload_rules,
+				.ginput_complex label {
+					font-size: 0.9rem;
+				}
+
+				.gchoice {
+					margin-bottom: var(--space-xs);
+					margin-top: var(--space-xs);
+					position: relative;
+				}
+
+				.gfield-choice-input {
+					&:focus-visible + label::before {
+						border: 2px solid var(--color-primary);
+					}
+
+					+ label {
+						font-size: 1.05em;
+						display: flex;
+						cursor: pointer;
+
+						&::before {
+							@include size(1em);
+							content: "";
+							display: inline-flex;
+							border: 1px solid var(--color-slate-light);
+							border-radius: 3px;
+							margin-right: var(--space-sm);
+							transition: 0.12s ease-out;
+						}
+					} // label
+
+					&[type=checkbox]:checked + label::before {
+						@extend %checkbox;
+					}
+
+					&[type=radio] {
+						+ label::before {
+							border-radius: 100%;
+							box-shadow: inset 0 0 0px 0 var(--color-primary);
+						}
+
+						&:checked {
+							border-color: var(--color-primary);
+							+ label::before {
+								box-shadow: inset 0 0 0px 0.225em var(--color-primary);
+							}
+						}
+					}// radio
+				} // choice
+
+				.gfield_error .gfield-choice-input + label::before {
+					border: 2px solid var(--color-error);
+				}
+			}// end grav theme
+
 		} // wrapper
 	} // gform
 }

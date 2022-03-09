@@ -48,7 +48,8 @@ input[type="submit"] {
 }
 
 .btn,
-.search-submit {
+.search-submit,
+.gform_button {
   color: var(--btn-label);
   padding: var(--btn-padding);
   border-radius: var(--btn-radius);
@@ -60,8 +61,6 @@ input[type="submit"] {
   text-align: center;
   justify-content: center;
   min-width: min-content;
-
-
 
   &:hover { --btn-bg: var(--color-hover); }
   &:focus {
@@ -86,11 +85,14 @@ input[type="submit"] {
     }
   }
 
-	&--primary {
+  &.gform_button {
+    padding: var(--space-sm) var(--space-lg);
+    width: clamp(100px, 100%, 160px);
+  }
+
+	&--primary{
     --btn-bg: var(--color-primary);
     width: clamp(100px, 100%, 160px);
-
-
 
     &:hover {
       --btn-bg: var(--color-hover);
