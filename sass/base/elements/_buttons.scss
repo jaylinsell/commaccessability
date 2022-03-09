@@ -90,7 +90,15 @@ input[type="submit"] {
     --btn-bg: var(--color-primary);
     width: clamp(100px, 100%, 160px);
 
-    &:hover { --btn-bg: var(--color-hover); }
+
+
+    &:hover {
+      --btn-bg: var(--color-hover);
+      .high-contrast & {
+        --btn-bg: var(--color-contrast-low);
+        --btn-label: var(--color-black);
+      }
+    }
     &:focus {
       --btn-border-color: var(--color-primary-darker);
       --btn-shadow: 0 0 5px 0 var(--color-primary-lighter);
@@ -159,6 +167,7 @@ input[type="submit"] {
   }
 
   &--search {
+    .high-contrast & { filter: grayscale(1); }
     --btn-padding: var(--space-xs);
     --btn-icon-size: 1.9em;
     --btn-bg: var(--color-contrast-low);

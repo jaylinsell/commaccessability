@@ -88,8 +88,8 @@
 		tippy('#accessabillity', {
 			content: `
 				<ul>
-					<li>Toggle One <button>Toggle</button></li>
-					<li>Toggle Two <button>Toggle</button></li>
+					<li>High Contrast <button class="acc__high-contrast">On</button></li>
+					<li>Zoom <button class="acc__zoom--plus" aria-label="Zoom In">+</button><button class="acc__zoom--minus" aria-label="Zoom Out">-</button></li>
 				</ul>
 			`,
 			allowHTML: true,
@@ -99,6 +99,66 @@
 			placement: 'bottom',
 			arrow: false,
 		});
+
+		let zoom = 0
+
+		const _body = document.body
+		const sessionZoom = sessionStorage.getItem('zoom')
+		const sessionHighContrast = sessionStorage.getItem('high-contrast')
+
+		if (sessionZoom) {
+			zoom = sessionZoom
+			_body.classList.add('zoom-' + zoom)
+		}
+
+		if (sessionHighContrast) {
+			_body.classList.add('high-contrast')
+		}
+
+		console.log(sessionStorage)
+
+		document.addEventListener('click', function (event) {
+			if (event.target.matches('.acc__high-contrast')) {
+				event.preventDefault();
+				_body.classList.toggle('high-contrast');
+				updateSessionStorage()
+			}
+
+			if (event.target.matches('.acc__zoom--plus')) {
+				event.preventDefault();
+				if (zoom < 2) {
+					zoom++
+					clearZooms()
+					_body.classList.add('zoom-'+zoom)
+				}
+				updateSessionStorage()
+			}
+
+			if (event.target.matches('.acc__zoom--minus')) {
+				event.preventDefault();
+				if (zoom > 0) {
+					zoom--
+					clearZooms()
+					_body.classList.add('zoom-'+zoom)
+				}
+				updateSessionStorage()
+			}
+		});
+
+		function clearZooms () {
+			_body.classList.remove('zoom-0')
+			_body.classList.remove('zoom-1')
+			_body.classList.remove('zoom-2')
+		}
+
+		function updateSessionStorage () {
+			if (_body.classList.contains('high-contrast')) {
+				sessionStorage.setItem('high-contrast', true)
+			} else {
+				sessionStorage.removeItem('high-contrast')
+			}
+			sessionStorage.setItem('zoom', zoom);
+		}
 </script>
 
 </body>

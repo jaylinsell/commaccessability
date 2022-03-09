@@ -26,7 +26,7 @@ get_header();
 							$resultText = 'result.';
 						}
 
-						printf( esc_html__( 'You searched for %s', 'commaccessability' ), '<span>' . get_search_query() . ', showing ' . $wp_query->found_posts . ' ' . $resultText . '</span>' );
+						printf( esc_html__( "You searched for %s", 'commaccessability' ), '<span>' . "'" . get_search_query() . "', showing " . $wp_query->found_posts . ' ' . $resultText . '</span>' );
 						?>
 					</h1>
 				</article>

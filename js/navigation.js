@@ -50,6 +50,8 @@
 	const searchField = document.querySelector( '.header__top .search-field' );
 	const searchForm = document.querySelector( '.header__top .search-form' );
 
+	const highContrastBtn = document.querySelector( '.acc__high-contrast' );
+
 	document.addEventListener( 'click', function( event ) {
 		const isClickInside = siteNavigation.contains( event.target );
 		const closeBtns = siteNavigation.querySelectorAll( '.nav__close' );
@@ -69,7 +71,6 @@
 				searchField.focus();
 			}
 		} else if ( searchForm.classList.contains( 'search-form--open' ) ) {
-			console.log( event.target );
 			searchForm.classList.remove( 'search-form--open' );
 		}
 	} );

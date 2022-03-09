@@ -17,7 +17,9 @@
     color: var(--color-white);
     font-weight: var(--font-medium);
 
-    &:hover { color: var(--color-accent-light); }
+    &:hover {
+      color: var(--color-accent-light);
+    }
   }
 
 	&__top,
@@ -28,8 +30,24 @@
 		> * { @include max-width; }
 	}
 
+  &__top {
+    .high-contrast & {
+      background: var(--color-black);
+      * { color: var(--color-white); }
+
+      a:hover {
+        color: var(--color-white);
+        opacity: 0.5;
+      }
+    }
+  }
+
 	&__bottom {
-		--footer-bg: var(--color-primary-lighter);
+    --footer-bg: var(--color-primary-lighter);
+    .high-contrast & {
+      background: var(--color-white);
+      * { color: var(--color-black); }
+    }
 	}
 
   &__cols {
@@ -52,6 +70,8 @@
           vertical-align: bottom;
           background: var(--link-icon) center no-repeat;
           margin-right: var(--space-xs);
+
+          .high-contrast & { filter: grayscale(1) contrast(100); }
         }
       }
 

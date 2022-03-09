@@ -154,6 +154,82 @@ $color__border-abbr: #666;
   }
 }
 
+.high-contrast {
+  --color-primary-darker: var(--color-black);
+  --color-primary-dark: var(--color-black);
+  --color-primary: var(--color-black);
+  --color-primary-light: var(--color-black);
+  --color-primary-lighter: var(--color-black);
+
+  --color-accent-darker: var(--color-black);
+  --color-accent-dark: var(--color-black);
+  --color-accent: var(--color-black);
+  --color-accent-light: var(--color-black);
+  --color-accent-lighter: var(--color-black);
+
+  --color-secondary-darker:var(--color-black);
+  --color-secondary-dark:var(--color-black);
+  --color-secondary:var(--color-black);
+  --color-secondary-light:var(--color-black);
+  --color-secondary-lighter:var(--color-black);
+
+  --color-black: #000;
+  --color-white: #fff;
+
+  // feedback
+  --color-warning-darker: var(--color-black);
+  --color-warning: var(--color-black);
+  --color-warning-light: var(--color-black);
+  --color-warning-lighter: var(--color-black);
+
+  --color-success-darker: var(--color-black);
+  --color-success-dark: var(--color-black);
+  --color-success: var(--color-black);
+  --color-success-light: var(--color-black);
+  --color-success-lighter: var(--color-black);
+
+  --color-error-darker: var(--color-black);
+  --color-error-dark: var(--color-black);
+  --color-error: var(--color-black);
+  --color-error-light: var(--color-black);
+  --color-error-lighter: var(--color-black);
+
+  // background
+  @include defineColorHSL(--color-bg-darker, 210, 4%, 89%);
+  @include defineColorHSL(--color-bg-dark, 180, 3%, 94%);
+  @include defineColorHSL(--color-bg, 179, 0%, 96%);
+  // @include defineColorHSL(--color-bg-light, 180, 3%, 100%);
+  // @include defineColorHSL(--color-bg-lighter, 210, 4%, 100%);
+
+  // color contrasts
+  @include defineColorHSL(--color-contrast-lower, 180, 1%, 84%);
+  @include defineColorHSL(--color-contrast-low, 204, 10%, 90%);
+    // @include defineColorHSL(--color-contrast-medium, 204, 2%, 46%);
+  --color-contrast-medium: var(--color-black);
+  --color-contrast-high: var(--color-black);
+  --color-contrast-higher: var(--color-black);
+
+  // slates
+  --color-slate-lighter: var(--color-black);
+  --color-slate-light: var(--color-black);
+  --color-slate: var(--color-black);
+  --color-slate-darker: var(--color-black);
+
+  // typography
+  --color-text-heading: var(--color-secondary);
+  --color-text: var(--color-slate);
+  --color-text-feature: #2b2e31;
+  --color-link: var(--color-primary);
+
+  // interaction
+  --color-hover: var(--color-slate);
+
+  // contrast overrides
+  img {
+    filter: grayscale(1);
+  }
+}
+
 // background color
 .bg-secondary-darker { background-color: alpha(var(--color-secondary-darker), var(--bg-o, 1)); }
 .bg-secondary-dark { background-color: alpha(var(--color-secondary-dark), var(--bg-o, 1)); }
