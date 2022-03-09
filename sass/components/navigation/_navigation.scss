@@ -136,60 +136,72 @@ $main: '.nav__container';
 
 .sub-menu {
 	display: none;
-	position: absolute;
-	top: calc(var(--space-xs) + 100%);
-	left: 0;
-	background: white;
-	border-radius: 3px 3px var(--radius) var(--radius);
-	box-shadow: var(--shadow-md);
-	min-width: 176px;
-	width: auto;
-	animation: fadein 0.15s var(--ease-out);
-	z-index: 500;
 
-	&::before,
-	&::after {
-		@include pseudo;
-		width: 100%;
+	@include breakpoint(md) {
+		position: absolute;
+		top: calc(var(--space-xs) + 100%);
 		left: 0;
-	}
+		background: white;
+		border-radius: 3px 3px var(--radius) var(--radius);
+		box-shadow: var(--shadow-md);
+		min-width: 176px;
+		width: auto;
+		animation: fadein 0.15s var(--ease-out);
+		z-index: 500;
 
-
-	&:before {
-		border-top-right-radius: var(--radius-sm);
-		border-top-left-radius: var(--radius-sm);
-		background: linear-gradient(to bottom, var(--color-slate) 4px, transparent 4px);
-		height: 50%;
-		min-height: 0.75em;
-		z-index: -1;
-		top: -4px;
-	}
-
-	&::after {
-		bottom: 100%;
-		height: var(--space-xs);
-	}
-
-	> .menu-item {
-		&:last-child {
-			border-bottom-right-radius: var(--radius);
-			border-bottom-left-radius: var(--radius);
-		}
-
-		&:hover { background: var(--color-bg); }
-
-		a {
-			display: block;
+		&::before,
+		&::after {
+			@include pseudo;
 			width: 100%;
-			padding: var(--space-sm);
-			color: var(--color-primary);
-			font-weight: var(--font-regular);
+			left: 0;
 		}
+
+
+		&:before {
+			border-top-right-radius: var(--radius-sm);
+			border-top-left-radius: var(--radius-sm);
+			background: linear-gradient(to bottom, var(--color-slate) 4px, transparent 4px);
+			height: 50%;
+			min-height: 0.75em;
+			z-index: -1;
+			top: -4px;
+		}
+
+		&::after {
+			bottom: 100%;
+			height: var(--space-xs);
+		}
+
+		> .menu-item {
+			&:last-child {
+				border-bottom-right-radius: var(--radius);
+				border-bottom-left-radius: var(--radius);
+			}
+
+			&:hover { background: var(--color-bg); }
+
+			a {
+				display: block;
+				width: 100%;
+				padding: var(--space-sm);
+				color: var(--color-primary);
+				font-weight: var(--font-regular);
+			}
+		}
+	}
+
+	@include breakpoint(md, 'not all') {
+		width: 100%;
+    padding-left: var(--space-md);
+    background: var(--color-bg);
+    margin-bottom: var(--space-md);
 	}
 }
 
 .menu-item {
 	position: relative;
+
+	.sub-menu-toggle { display: none; }
 
 	@include breakpoint(md, 'not all') {
 		.nav & {
@@ -205,10 +217,57 @@ $main: '.nav__container';
 				background-position: calc(100% - var(--space-md)) center;
 			}
 		}
+
+		// if parent, we have a button instead...
+		&.menu-item-has-children {
+			.nav & {
+				display: inline-flex;
+				flex-wrap: wrap;
+
+				a {
+					flex: 1;
+					background: none;
+				}
+			}
+		} //end parent
+
+		.sub-menu-toggle {
+			@include size(3em);
+			display: inline-block;
+			background-image: url(svgs/icon-chevron.svg);
+			transform: translateX(-1.2em) rotate(90deg);
+			background-repeat: no-repeat;
+			background-position: center;
+			border-radius: 100%;
+			background-color: var(--color-contrast-low);
+			transition: 0.1s ease-out;
+
+			&.menu-item-open {
+				transform: translateX(-1.2em) rotate(-90deg);
+			}
+
+			&:hover {
+				background-color: var(--color-contrast-lower);
+			}
+
+			&::before {
+				content: "";
+				display: block;
+				height: 1px;
+				width: 1px;
+				background: var(--color-slate-light);
+			}
+		}
+
+		.menu-item-open {
+			+ .sub-menu { display: block; }
+		}
 	}
 
-	&:hover {
-		> .sub-menu { display: block; }
+	@include breakpoint(md) {
+		&:hover {
+			> .sub-menu { display: block; }
+		}
 	}
 }
 

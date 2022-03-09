@@ -99,7 +99,11 @@
 							<span class="checkbox--right">High Contrast</span>
 						</label>
 					</li>
-					<li class="acc__zoom-actions"><span>Zoom</span> <button class="acc__zoom--plus" aria-label="Zoom In">+</button><button class="acc__zoom--minus" aria-label="Zoom Out">-</button></li>
+					<li class="acc__zoom-actions">
+						<span>Zoom</span>
+						<button class="acc__zoom--minus" aria-label="Zoom Out">-</button>
+						<button class="acc__zoom--plus" aria-label="Zoom In">+</button>
+					</li>
 				</ul>
 			`,
 			allowHTML: true,

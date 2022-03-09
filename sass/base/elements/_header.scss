@@ -158,10 +158,21 @@ button[class^=acc__zoom] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--color-slate-light);
+  background: var(--color-primary);
+  color: var(--color-white);
   border-radius: 3px;
   font-size: 1.5rem;
   padding-bottom: 0.21em;
+  transition: 0.2s ease-out;
+
+  &:hover {
+    background-color: var(--color-slate);
+    color: var(--color-white);
+
+    .high-contrast & { background-color: var(--color-contrast-low); color: var(--color-black); }
+  }
+
+  + button[class^=acc__zoom] { margin-left: 0.2em; }
 }
 
 
@@ -183,6 +194,7 @@ button[class^=acc__zoom] {
   label, label span {
     display: flex;
     width: 100%;
+    gap: 1em;
 
     &.checkbox--right::before { margin-left: auto; }
   }

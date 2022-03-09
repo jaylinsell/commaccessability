@@ -56,11 +56,18 @@
 		const isClickInside = siteNavigation.contains( event.target );
 		const closeBtns = siteNavigation.querySelectorAll( '.nav__close' );
 		const isCloseBtn = [ ...closeBtns ].some( ( btn ) => btn.contains( event.target ) );
+		const subMenuBtns = siteNavigation.querySelectorAll( '.sub-menu-toggle' );
+		const isSubMenuToggle = [ ...subMenuBtns ].some( ( btn ) => btn.contains( event.target ) );
 
 		if ( ! isClickInside || isCloseBtn ) {
 			siteNavigation.classList.remove( 'toggled' );
 			body.classList.remove( 'nav-toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
+			[ ...subMenuBtns ].forEach( ( btn ) => btn.classList.remove( 'menu-item-open' ) );
+		}
+
+		if ( isSubMenuToggle ) {
+			event.target.classList.toggle( 'menu-item-open' );
 		}
 
 		// if search btn- we just want to focus on the field if it's empty
