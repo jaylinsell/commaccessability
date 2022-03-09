@@ -1,0 +1,20 @@
+{
+  "main.js": "app/main-77d89419.js",
+  "main.js.map": "app/main-77d89419.js.map",
+  "runtime.js": "app/runtime-55106bba.js",
+  "runtime.js.map": "app/runtime-55106bba.js.map",
+  "wpackioEp": {
+    "main": {
+      "assets": {
+        "js": [
+          "app/runtime-55106bba.js",
+          "app/main-77d89419.js"
+        ],
+        "js.map": [
+          "app/runtime-55106bba.js.map",
+          "app/main-77d89419.js.map"
+        ]
+      }
+    }
+  }
+}
