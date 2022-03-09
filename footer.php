@@ -83,13 +83,23 @@
 
 <?php wp_footer(); ?>
 <script>
+		const html = document.querySelector('html')
+		const highContrastToggle = document.querySelector('.acc__high-contrast')
+		const sessionZoom = sessionStorage.getItem('zoom')
+		const sessionHighContrast = sessionStorage.getItem('high-contrast')
+
 		// With the above scripts loaded, you can call `tippy()` with a CSS
 		// selector and a `content` prop:
 		tippy('#accessabillity', {
 			content: `
 				<ul>
-					<li>High Contrast <button class="acc__high-contrast">On</button></li>
-					<li>Zoom <button class="acc__zoom--plus" aria-label="Zoom In">+</button><button class="acc__zoom--minus" aria-label="Zoom Out">-</button></li>
+					<li>
+						<label for="high-contrast">
+							<input type="checkbox" name="high-contrast" id="high-contrast" value="high-contrast" class="acc__high-contrast" ${sessionHighContrast && 'checked'} />
+							<span class="checkbox--right">High Contrast</span>
+						</label>
+					</li>
+					<li class="acc__zoom-actions"><span>Zoom</span> <button class="acc__zoom--plus" aria-label="Zoom In">+</button><button class="acc__zoom--minus" aria-label="Zoom Out">-</button></li>
 				</ul>
 			`,
 			allowHTML: true,
@@ -102,25 +112,26 @@
 
 		let zoom = 0
 
-		const _body = document.body
-		const sessionZoom = sessionStorage.getItem('zoom')
-		const sessionHighContrast = sessionStorage.getItem('high-contrast')
-
 		if (sessionZoom) {
 			zoom = sessionZoom
-			_body.classList.add('zoom-' + zoom)
+			html.classList.add('zoom-' + zoom)
 		}
 
 		if (sessionHighContrast) {
-			_body.classList.add('high-contrast')
+			html.classList.add('high-contrast')
 		}
 
-		console.log(sessionStorage)
+
+		// highContrastToggle.addEventListener('change', function (event) {
+		// 	console.log('changed')
+		// 	html.classList.toggle('high-contrast');
+		// 	updateSessionStorage()
+		// })
 
 		document.addEventListener('click', function (event) {
 			if (event.target.matches('.acc__high-contrast')) {
-				event.preventDefault();
-				_body.classList.toggle('high-contrast');
+
+				html.classList.toggle('high-contrast');
 				updateSessionStorage()
 			}
 
@@ -129,7 +140,7 @@
 				if (zoom < 2) {
 					zoom++
 					clearZooms()
-					_body.classList.add('zoom-'+zoom)
+					html.classList.add('zoom-'+zoom)
 				}
 				updateSessionStorage()
 			}
@@ -139,20 +150,20 @@
 				if (zoom > 0) {
 					zoom--
 					clearZooms()
-					_body.classList.add('zoom-'+zoom)
+					html.classList.add('zoom-'+zoom)
 				}
 				updateSessionStorage()
 			}
 		});
 
 		function clearZooms () {
-			_body.classList.remove('zoom-0')
-			_body.classList.remove('zoom-1')
-			_body.classList.remove('zoom-2')
+			html.classList.remove('zoom-0')
+			html.classList.remove('zoom-1')
+			html.classList.remove('zoom-2')
 		}
 
 		function updateSessionStorage () {
-			if (_body.classList.contains('high-contrast')) {
+			if (html.classList.contains('high-contrast')) {
 				sessionStorage.setItem('high-contrast', true)
 			} else {
 				sessionStorage.removeItem('high-contrast')

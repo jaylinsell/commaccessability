@@ -1,7 +1,12 @@
-html { background: var(--color-white); }
+html {
+	 background: var(--color-white);
+	&.zoom-1 { font-size: 21px; }
+	&.zoom-2 { font-size: 26px; }
+}
 html, body {
 	height: 100%;
 }
+
 
 .section {
  @include max-width;

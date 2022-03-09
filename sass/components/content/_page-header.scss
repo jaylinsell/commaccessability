@@ -33,6 +33,12 @@
   padding: var(--p-h-root-padding);
   max-height: var(--p-h-max-height);
 
+  .zoom-1 &,
+  .zoom-2 &, {
+    --p-h-max-height: 100%;
+    --p-h-columns: minmax(min-content, 1fr) 1fr;
+  }
+
   &--home {
     // --p-h-columns: minmax(0, 1fr) 1fr;
     --p-h-max-height: 100%;

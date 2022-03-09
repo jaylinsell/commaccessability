@@ -123,6 +123,7 @@
     width: 100%;
     border-radius: 2em;
     background: var(--color-contrast-low);
+    font-size: 0.9rem!important;
     &:not(:focus) { border-color: var(--color-contrast-low); }
   }
 
@@ -148,5 +149,41 @@
         height: auto;
       }
     }
+  }
+}
+
+//accessability toggles
+button[class^=acc__zoom] {
+  @include size(1.75rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-slate-light);
+  border-radius: 3px;
+  font-size: 1.5rem;
+  padding-bottom: 0.21em;
+}
+
+
+.acc__wrapper .tippy-content {
+  min-width: 180px;
+  padding: var(--space-sm);
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    span { margin-right: auto; }
+
+    + li { margin-top: var(--space-sm); }
+  }
+
+
+  label, label span {
+    display: flex;
+    width: 100%;
+
+    &.checkbox--right::before { margin-left: auto; }
   }
 }
