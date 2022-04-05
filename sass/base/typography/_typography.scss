@@ -127,7 +127,8 @@ ul, ol { list-style: none; }
 		font-size: var(--text-base-size);
 		line-height: var(--body-line-height);
 	}
-	p {
+
+	&:not(.content--feature) p {
 		margin-bottom: var(--space-md);
 		max-width: 60ch;
 	}

@@ -16,7 +16,7 @@ $enqueue = new caEnque('appName', 'outputPath', '1.0.0', 'theme', __FILE__);
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.1.0' );
+	define( '_S_VERSION', '1.1.4' );
 }
 
 if ( ! function_exists( 'commaccessability_setup' ) ) :
@@ -152,7 +152,7 @@ add_action( 'widgets_init', 'commaccessability_widgets_init' );
  * Enqueue scripts and styles.
  */
 function commaccessability_scripts() {
-	wp_enqueue_style( 'commaccessability-style', get_stylesheet_uri(), array() );
+	wp_enqueue_style( 'commaccessability-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'commaccessability-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'commaccessability-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
@@ -199,12 +199,14 @@ function add_page_categories() {
 // Add to the admin_init hook of your theme functions.php file
 add_action( 'init', 'add_page_categories' );
 
-// function search_filter( $query ) {
-// 	if ( $query->is_search ) {
-// 			$query->set( 'post_type', array('page') );
-// 	}
-// 	return $query;
-// }
-// add_filter('pre_get_posts','search_filter');
+add_filter( 'walker_nav_menu_start_el', 'add_menu_btn',10,4);
+function add_menu_btn( $output, $item, $depth, $args ){
 
-
+	//Only add class to 'top level' items on the 'primary' menu.
+	if('menu-1' == $args->theme_location && $depth === 0 ){
+			if (in_array("menu-item-has-children", $item->classes)) {
+					$output .='<button class="sub-menu-toggle" aria-label="Toggle Sub Menu"></button>';
+			}
+	}
+	return $output;
+}

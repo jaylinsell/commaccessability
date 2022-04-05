@@ -49,6 +49,8 @@ $main: '.nav__container';
 		@include breakpoint(md, 'not all') {
 			&, .search-form { display: none; }
 
+			overflow: auto;
+
 			background: var(--color-white);
 			position: fixed;
 			right: 0;

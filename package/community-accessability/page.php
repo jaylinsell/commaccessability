@@ -16,7 +16,7 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-		<section class="page__header section section--full <?php if( !is_front_page() || !is_home()) :?>page__header--home<?php endif; ?>">
+		<section class="page__header section section--full <?php if( is_front_page() || is_home()) :?>page__header--home<?php endif; ?>">
 			<article>
 				<h1><?php single_post_title(); ?></h1>
 					<?php if( get_field('page_summary') ): ?>

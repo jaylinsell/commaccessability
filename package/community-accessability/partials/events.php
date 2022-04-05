@@ -100,7 +100,7 @@
                   </div>
                 <?php endif; ?>
 
-                <a href="#" class="event__enquire">Enquire about this event</a>
+                <a href="<?php echo get_site_url(); ?>/contact/" class="event__enquire">Enquire about this event</a>
               </div>
             </article>
 

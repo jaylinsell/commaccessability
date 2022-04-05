@@ -41,11 +41,22 @@
 
   &--home {
     // --p-h-columns: minmax(0, 1fr) 1fr;
-    --p-h-max-height: 100%;
+    --p-h-max-height: revert; // revert to default - but re-assign max height just for this container without effecting child elements
     --p-h-root-padding: 0;
     --p-h-mask: url(svgs/desktop-mask.svg);
     --p-h-padding: var(--space-xxl) 0 var(--space-xxl) clamp(var(--space-xl), var(--max-page-width), calc(100% - var(--max-page-width) / 2));
     --p-h-aspect-ratio: auto;
+
+    max-height: initial;
+    height: min-content;
+    grid-template-rows: 100%;
+    align-content: center;
+    min-height: 25vw;
+
+    figure {
+      height: auto;
+      min-height: 100%;
+    }
 
     @include breakpoint(md, 'not all') {
       // --p-h-columns: 1fr;
