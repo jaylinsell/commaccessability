@@ -16,7 +16,7 @@ $enqueue = new caEnque('appName', 'outputPath', '1.0.0', 'theme', __FILE__);
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.1.4' );
+	define( '_S_VERSION', '1.1.8' );
 }
 
 if ( ! function_exists( 'commaccessability_setup' ) ) :
@@ -156,7 +156,7 @@ function commaccessability_scripts() {
 	wp_style_add_data( 'commaccessability-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'commaccessability-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'tabs', get_template_directory_uri() . '/js/vanilla-js-tabs.js', array(), false, true );
+	wp_enqueue_script( 'tabs', get_template_directory_uri() . '/js/vanilla-js-tabs.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'popperjs', 'https://unpkg.com/@popperjs/core@2', array(), null, true );
 	wp_enqueue_script( 'tippy', 'https://unpkg.com/tippy.js@6', array(), null, true );
 
@@ -210,3 +210,9 @@ function add_menu_btn( $output, $item, $depth, $args ){
 	}
 	return $output;
 }
+
+/**
+ * Hide ACF menu item from the admin menu
+ */
+
+add_filter('acf/settings/show_admin', '__return_false');

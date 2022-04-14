@@ -104,6 +104,8 @@
     overflow: hidden;
     z-index: -1;
     position: relative;
+    border-top-right-radius: var(--radius);
+    border-top-left-radius: var(--radius);
 
     @include breakpoint(tablg, 'not all') {
       --card-thumb-ratio: 174/79;

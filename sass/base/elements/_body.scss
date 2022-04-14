@@ -40,6 +40,10 @@ html, body {
 			margin: auto;
 		}
 	}
+
+	&--generic + &--generic:not(.section--grey) {
+		padding-bottom: var(--space-sm);
+	}
 }
 
 .site-main > [class^=section] {

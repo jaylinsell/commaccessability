@@ -87,7 +87,9 @@ function _defineProperty( obj, key, value ) {
 
 	const setAttributes = function setAttributes( node, attrs ) {
 		Object.keys( attrs ).forEach( function( attribute ) {
-			node.setAttribute( attribute, attrs[ attribute ] );
+			if ( node ) {
+				node.setAttribute( attribute, attrs[ attribute ] );
+			}
 		} );
 	};
 	const unSelectLinks = function unSelectLinks( elts ) {
@@ -295,8 +297,10 @@ function _defineProperty( obj, key, value ) {
 				setAttributes( $tabListLinks[ 0 ], _defineProperty( {
 					tabindex: '0',
 				}, ATTR_SELECTED, 'true' ) );
-				const panelFirst = findById( $tabListLinks[ 0 ].getAttribute( ATTR_CONTROLS ) );
-				panelFirst.removeAttribute( ATTR_HIDDEN );
+				if ( $tabListLinks[ 0 ] ) {
+					const panelFirst = findById( $tabListLinks[ 0 ].getAttribute( ATTR_CONTROLS ) );
+					panelFirst.removeAttribute( ATTR_HIDDEN );
+				}
 			}
 		} );
 	};

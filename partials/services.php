@@ -32,7 +32,7 @@
             if ( $link !== 'none' ) { echo '<a href="'.$href.'">'; }
           ?>
             <figure class="card__thumb">
-              <?php echo wp_get_attachment_image($imageId) ?>
+              <?php echo wp_get_attachment_image($imageId, array('400', '400')); ?>
             </figure>
 
             <section class="card__content">

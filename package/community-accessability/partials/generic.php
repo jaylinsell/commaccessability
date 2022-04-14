@@ -7,7 +7,7 @@
     $greyBG = true;
   }
 ?>
-<section class="section <?php if( $greyBG ) : ?>section--full section--grey<?php endif; ?>">
+<section class="section section--generic <?php if( $greyBG ) : ?>section--full section--grey<?php endif; ?>">
   <?php if ( $greyBG ) : ?>
     <div class="section">
   <?php endif; ?>

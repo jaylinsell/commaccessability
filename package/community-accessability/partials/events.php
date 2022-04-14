@@ -35,14 +35,25 @@
           $sectionObj->$id->events = array();
         }
 
-        if(!isset($sectionObj->$id->events[$event->id])) {
-          array_push($sectionObj->$id->events, $event);
-        }
+        // if(!isset($sectionObj->$id->events[$event->id])) {
+        array_push($sectionObj->$id->events, $event);
+        // }
       ?>
+      <!-- <div style="border: 1px solid black; padding: 1em;" >
+        <div><?php echo $id; ?></div>
+        <div><?php echo $title; ?></div>
+        <div><?php echo $date; ?></div>
+        <div><?php echo $description; ?></div>
+        <div><?php echo $cost; ?></div>
+        <div><?php echo $location; ?></div>
+      </div> -->
     <?php endwhile; ?>
   <?php endif; ?>
 
   <article class="event__section js-tabs">
+    <!-- <?php
+      print_r($sectionObj);
+    ?> -->
     <h2 class="event__title--main" id="<?php echo $sectionTitle ?>"><?php echo $sectionTitle ?></h2>
 
     <ul class="js-tablist" data-hx="h2">
@@ -64,8 +75,6 @@
     <?php foreach($sectionObj as $section) : ?>
       <section id="<?php echo $sectionTitle . '-' . $section->id; ?>" class="event__content js-tabcontent">
         <?php foreach($section->events as $event) : ?>
-          <?php if ($section->id == $event->id) : ?>
-
             <article class="event__card">
               <div class="event__col--1">
                 <h3 class="event__title">
@@ -104,7 +113,6 @@
               </div>
             </article>
 
-          <?php endif; ?>
         <?php endforeach; ?>
       </section>
     <?php endforeach; ?>
