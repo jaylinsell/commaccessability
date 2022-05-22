@@ -16,7 +16,7 @@ $enqueue = new caEnque('appName', 'outputPath', '1.0.0', 'theme', __FILE__);
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.1.8' );
+	define( '_S_VERSION', '1.1.9' );
 }
 
 if ( ! function_exists( 'commaccessability_setup' ) ) :

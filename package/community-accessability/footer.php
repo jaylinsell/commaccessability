@@ -75,7 +75,7 @@
 
 			<section class="footer__legals grid grid--2">
 				<p>Community Accessability acknowledge the Traditional Custodians of the land on which we work and live, and recognise their continuing connection to land, water and community. We pay our respects to Aboriginal and Torres Strait Islander cultures and to Elders past, present and emerging.</p>
-				<p>Community Accessability celebrate the richness of diversity in our community. We respect and suport all people in equal measure, irrespective of their disability, ethnicity, faith, secual orientation and gender identity.</p>
+				<p>Community Accessability celebrate the richness of diversity in our community. We respect and support all people in equal measure, irrespective of their disability, ethnicity, faith, sexual orientation and gender identity.</p>
 			</section>
 		</section>
 	</footer><!-- #colophon -->

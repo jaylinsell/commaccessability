@@ -109,7 +109,7 @@
                   </div>
                 <?php endif; ?>
 
-                <a href="<?php echo get_site_url(); ?>/contact/" class="event__enquire">Enquire about this event</a>
+                <a href="<?php echo get_site_url(); ?>/257-2/" class="event__enquire">Enquire about this event</a>
               </div>
             </article>
 

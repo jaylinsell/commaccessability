@@ -56,7 +56,7 @@
 			<div class="search" aria-label="Hover to open search">
 				<?php get_search_form() ?>
 			</div>
-			<a href="https://ca.sostg.com.au/" target="_blank" rel="noopener" class="btn btn--primary btn--small" type="button">Book Transport</a>
+			<a href="https://communityaccessability.com.au/257-2/" class="btn btn--primary btn--small" type="button">Contact Us</a>
 		</section>
 
 		<nav id="site-navigation" class="nav">
@@ -71,7 +71,7 @@
 
 			<div class="nav__container">
 				<header class="nav__controls">
-					<a href="https://communityaccessability.com.au/257-2/" target="_blank" rel="noopener" class="btn btn--primary btn--small" type="button">Book Transport</a>
+					<a href="https://communityaccessability.com.au/257-2/" class="btn btn--primary btn--small" type="button">Contact Us</a>
 					<!-- Button duplicated so that styles don't effect the accessibility flow that re-ordering has -->
 					<button class="btn btn--primary btn--icon nav__close nav__close--mob">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
